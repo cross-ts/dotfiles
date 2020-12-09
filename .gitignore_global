@@ -1,0 +1,14 @@
+# Mac で作成される.DS_Store
+.DS_Store
+
+# backupファイル
+*~
+~*
+*.swp
+*.swo
+
+# :Ctags で作成されたタグファイルはGit管理しない
+tags
+
+# startuptime.logはGit管理しない
+startuptime.log

@@ -1,0 +1,27 @@
+[[snippets]]
+  description = "benchmark"
+  command = "for i in $(seq 1 10); do time zsh -i -c exit; done"
+
+[[snippets]]
+  description = "brew"
+  command = "brew upgrade; brew cleanup --prune -v; brew doctor"
+
+[[snippets]]
+  description = "ghq"
+  command = "ghq list | grep github.com | perl -pe 's/^[^\\/]+\\///' | xargs -n1 -P10 ghq get -u"
+
+[[snippets]]
+  description = "ssh"
+  command = "eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
+
+[[snippets]]
+  description = "dein"
+  command = 'nvim -c "try | call dein#update() | finally | qall! | endtry" -N -u $DOTPATH/.vimrc -U NONE -i NONE -V1 -e -s'
+
+[[snippets]]
+  description = "dein"
+  command = 'nvim -c "try | call dein#recache_runtimepath() | finally | qall! | endtry" -N -u $DOTPATH/.vimrc -U NONE -i NONE -V1 -e -s'
+
+[[snippets]]
+  description = "submodule"
+  command = "git submodule init && git submodule update && git submodule foreach git pull origin master"

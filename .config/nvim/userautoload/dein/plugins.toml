@@ -1,0 +1,67 @@
+# Dark powered Vim/Neovim plugin manager
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# Dark powered asynchronous unite all interfaces for Neovim/Vim8
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+# Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+# A vim plugin to display the indention levels with thin vertical lines
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+# Ctags generator for Vim
+[[plugins]]
+repo = 'szw/vim-tags'
+
+# A tree explorer plugin for vim.
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_source = '''
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  autocmd VimEnter * NERDTree | call feedkeys("\<Space>") | call feedkeys("\s") | call feedkeys("\l")
+  let g:NERDTreeShowHidden = 1
+'''
+
+# A command-line fuzzy finder
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+
+# fzf ❤ vim
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_source = '''
+  command! -bang -nargs=* FzfRipGrep
+  \ call fzf#vim#grep(
+  \   'rg --line-number --no-heading --color=always --smart-case --hidden --glob=!.git '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({}, 'right:50%:wrap'), <bang>0)
+  nnoremap <C-g> :FzfRipGrep<CR>
+  nnoremap <silent> <C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
+'''
+
+# fugitive.vim: A Git wrapper so awesome, it should be illegal
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips!
+[[plugins]]
+repo = 'SirVer/ultisnips'
+
+# Wrapper of some vim/neovim's :terminal functions.
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_source = '''
+  nnoremap t :Tnew<CR>
+  let g:neoterm_default_mod = 'vertical'
+  let g:neoterm_autoinsert = 1
+'''
+
+# The best flat theme for Vim, Atom, Sublime Text, Jetbrains Editors, Terminal.app, iTerm, Xcode and XTerm
+[[plugins]]
+repo = 'raphamorim/lucario'

@@ -1,0 +1,14 @@
+# submoduleとして登録しているtpm以外のpluginsは管理しない
+.tmux/*
+!.tmux/plugins/tpm
+
+# tmpディレクトリは管理外にする
+tmp/*
+!tmp/.gitkeep
+
+# vimのundoディレクトリは管理外にする
+.config/nvim/undodir/*
+!.config/nvim/undodir/.gitkeep
+
+zsh/.zcompdump
+zsh/.zshrc.zwc

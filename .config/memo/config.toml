@@ -1,0 +1,6 @@
+memodir = "~/drive/memo"
+editor = "nvim"
+column = 20
+selectcmd = "fzf"
+grepcmd = "rg ${PATTERN} ${DIR}"
+assetsdir = "."

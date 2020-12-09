@@ -1,0 +1,76 @@
+# endwise.vim: wisely add "end" in ruby, endfunction/endif/more in vim script
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = ['ruby', 'sh', 'zsh']
+
+# Iro.vim is a Vim plugin that is a next generation syntax highlighter.
+[[plugins]]
+repo = 'pocke/iro'
+on_ft = ['ruby', 'python']
+
+# emmet for vim
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'eruby']
+
+# Syntax highlighting for VIM
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = ['slim']
+
+# Vim syntax for TOML
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+# Vim Markdown runtime files
+[[plugins]]
+repo = 'tpope/vim-markdown'
+on_ft = ['markdown']
+
+# Real-time markdown preview plugin for vim
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'rmd', 'pandoc.markdown']
+build = 'cd app && ./install.sh'
+
+# Go development plugin for Vim
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+
+# denite-rails is a Denite.nvim source for Rails.
+[[plugins]]
+repo = '5t111111/denite-rails'
+on_ft = ['ruby', 'eruby', 'slim']
+
+# rails.vim: Ruby on Rails power tools
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_ft = ['ruby', 'eruby', 'slim']
+
+# CoffeeScript support for vim
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = ['coffee']
+
+# Kotlin plugin for Vim. Featuring: syntax highlighting, basic indentation, Syntastic support
+[[plugins]]
+repo = 'udalov/kotlin-vim'
+on_ft = ['kotlin']
+
+# Syntax file from http://www.vim.org/scripts/script.php?script_id=739
+[[plugins]]
+repo = 'stephpy/vim-yaml'
+on_ft = ['yaml']
+
+# ALE (Asynchronous Lint Engine) is a plugin providing linting (syntax checking and semantic errors) in NeoVim 0.2.0+ and Vim 8 while you edit your text files, and acts as a Vim Language Server Protocol client.
+[[plugins]]
+repo = 'dense-analysis/ale'
+on_ft = ['ruby']
+hook_source = '''
+  let g:ale_completion_enabled = 1
+  let g:ale_fixers = { \
+    'ruby': ['rubocop'], \
+  }
+'''

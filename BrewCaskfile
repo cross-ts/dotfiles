@@ -1,0 +1,32 @@
+cask_args appdir: "/Applications"
+
+tap "caskroom/versions"
+
+# Browser
+cask "google-chrome"
+cask "google-chrome-canary"
+cask "firefox"
+
+# Task Management Tools
+cask "nozbe"
+
+# Chat Tools
+cask "skype"
+cask "slack"
+
+# Development tools
+# Virtualization
+cask "docker"
+cask "virtualbox"
+cask "vagrant"
+
+# Terminal Emulator
+cask "iterm2"
+cask "alacritty"
+
+# Database Client
+cask "sequel-pro"
+cask "sqlpro-for-sqlite"
+
+# Editor
+cask "visual-studio-code"

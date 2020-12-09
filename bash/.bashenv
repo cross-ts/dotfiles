@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+export ENABLE_DEBUG=1
+
+export DOTPATH="${HOME}/dotfiles"
+export BDOTDIR="${DOTPATH}/bash"
+
+source "${BDOTDIR}/.bash_profile"

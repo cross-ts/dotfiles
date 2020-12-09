@@ -1,0 +1,3 @@
+#!/bin/sh
+
+git branch | grep -v \* | fzf --ansi --height 20% | xargs git checkout

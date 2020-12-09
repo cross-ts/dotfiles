@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git branch | grep -v -e '*' -v -e 'master' -v -e 'main' | xargs -L1 git branch -d
+git fetch --prune

@@ -1,0 +1,36 @@
+[color]
+  ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+[alias]
+  br = branch
+  co = checkout
+  cm = commit
+  mc = commit
+  st = status
+  ts = status
+  sw = switch
+  df = diff
+  cp = cherry-pick
+  wt = worktree
+  ff = flow feature
+  ffs = flow feature start
+  fff = flow feature finish
+  frs = flow release start
+  frf = flow release finish
+  rename = rename-branch
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore_global
+  ignorecase = false
+[push]
+  default = current
+[include]
+  path = ~/.gituser
+[merge]
+  ff = false
+[pull]
+  ff = only
+[ghq]
+  root = ~/src

@@ -1,0 +1,29 @@
+#!/bin/sh
+
+DOTPATH="${HOME}/dotfiles"
+
+if [ ! -e "${HOME}/.config" ]; then
+  mkdir ${HOME}/.config
+fi
+
+for filename in .??* .config/*; do
+  test $filename = '.git'        && continue
+  test $filename = '.gitignore'  && continue
+  test $filename = '.gitmodules' && continue
+  test $filename = '.config'     && continue
+  test $filename = '.DS_Store'   && continue
+  ln -fsnv "${DOTPATH}/${filename}" "${HOME}/${filename}"
+done
+
+if [ ! -e "${HOME}/.gituser" ]; then
+  read -p "name  = " name
+  read -p "email = " email
+  cat <<GITUSER >> ${HOME}/.gituser
+[user]
+  name = ${name}
+  email = ${email}
+GITUSER
+  unset name email
+fi
+
+unset filename
