@@ -1,6 +1,7 @@
 # submoduleとして登録しているtpm以外のpluginsは管理しない
-.tmux/*
-!.tmux/plugins/tpm
+# .tmux/*
+# .tmux/plugins/*
+# !.tmux/plugins/tpm
 
 # tmpディレクトリは管理外にする
 tmp/*
