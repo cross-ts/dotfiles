@@ -1,5 +1,6 @@
 # submoduleとして登録しているtpm以外のpluginsは管理しない
 .tmux/plugins/*
+.tmux/resurrect/*
 !.tmux/plugins/tpm
 
 # tmpディレクトリは管理外にする
