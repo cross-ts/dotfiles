@@ -33,7 +33,7 @@ if executable git; then
 fi
 
 if is_linux; then
-  alias ll='ls -la --color=auto'
+  alias ll='ls -lahG --color=auto'
   alias grep='grep --color'
   alias ps='ps aux --sort -rss'
   executable xsel && alias pbcopy='xsel --clipboard --input'

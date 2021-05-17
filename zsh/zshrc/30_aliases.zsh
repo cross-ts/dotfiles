@@ -38,7 +38,7 @@ if is_linux; then
   alias ps='ps aux --sort -rss'
   executable xsel && alias pbcopy='xsel --clipboard --input'
 elif is_osx; then
-  alias ll="ls -laG"
+  alias ll="ls -lahG"
   alias grep="grep --color=auto"
   alias ps="ps auxm"
   executable gawk && alias awk="gawk"
