@@ -1,13 +1,10 @@
-# tap for install
-tap "sanemat/font"
-
-# install
 # shell
 brew "zsh"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
 
 # font
+tap "sanemat/font"
 brew "ricty"
 
 # for editior
