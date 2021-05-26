@@ -34,3 +34,5 @@
   ff = only
 [ghq]
   root = ~/src
+[init]
+  defaultBranch = main
