@@ -18,6 +18,8 @@ brew "git-extras"
 brew "git-flow"
 brew "ghq"
 brew "hub"
+tap "github/gh"
+brew "gh"
 
 # update commands
 brew "rsync"
@@ -38,6 +40,7 @@ brew "fzf"
 brew "tmux"
 brew "tree"
 brew "knqyf263/pet/pet"
+brew "percona-toolkit"
 
 # AWS
 tap "aws/tap"
