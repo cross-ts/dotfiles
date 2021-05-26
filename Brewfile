@@ -40,11 +40,16 @@ brew "bat"
 brew "fzf"
 brew "tmux"
 brew "tree"
-brew "awscli"
 brew "knqyf263/pet/pet"
+
+# AWS
+tap "aws/tap"
+brew "awscli"
+brew "aws-sam-cli"
 
 # cask
 cask "google-chrome"
 cask "docker"
 cask "iterm2"
 cask "sequel-pro"
+cask "1password"
