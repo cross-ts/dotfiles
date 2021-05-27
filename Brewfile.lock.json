@@ -949,6 +949,12 @@
         "options": {
           "full_name": "1password"
         }
+      },
+      "deepl": {
+        "version": "2.3.41773",
+        "options": {
+          "full_name": "deepl"
+        }
       }
     }
   },
@@ -971,7 +977,7 @@
       "big_sur": {
         "HOMEBREW_VERSION": "3.1.9",
         "HOMEBREW_PREFIX": "/opt/homebrew",
-        "Homebrew/homebrew-core": "7fbf14908bc190443879ab8e3799104148125874",
+        "Homebrew/homebrew-core": "754d838326a1fff4e281176de155c3b734b2abac",
         "CLT": "12.5.0.0.1.1617976050",
         "Xcode": "12.5",
         "macOS": "11.2.3"
