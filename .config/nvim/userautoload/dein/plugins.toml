@@ -65,3 +65,11 @@ hook_source = '''
 # The best flat theme for Vim, Atom, Sublime Text, Jetbrains Editors, Terminal.app, iTerm, Xcode and XTerm
 [[plugins]]
 repo = 'raphamorim/lucario'
+
+# Async Language Server Protocol plugin for vim8 and neovim.
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+# Auto configurations for Language Servers for vim-lsp.
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
