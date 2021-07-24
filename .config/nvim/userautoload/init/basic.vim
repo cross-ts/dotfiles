@@ -43,11 +43,6 @@ set laststatus=2
 set wildmenu
 set wildmode=longest,full
 
-" 折りたたみに関する設定
-set foldmethod=indent
-set foldcolumn=1
-autocmd BufRead * normal zR
-
 " 永続undo
 set undofile
 if !isdirectory(expand("$HOME/.vim/undodir"))
