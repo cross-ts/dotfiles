@@ -57,13 +57,6 @@ fi
 if executable anyenv && [[ ! -e ${DOTCACHE}/anyenv.init.zsh ]]; then
   info "Cache Not found : ${DOTCACHE}/anyenv.init.zsh"
   anyenv init - --no-rehash > ${DOTCACHE}/anyenv.init.zsh
-  # NOTE:
-  #   * pyenv init - がPATH設定を行わなくなったため
-  #   * anyenv側で対応されたら消す
-  # See: https://github.com/anyenv/anyenv/issues/90
-  if executable pyenv; then
-    pyenv init --path >> ${DOTCACHE}/anyenv.init.zsh
-  fi
   info "Cache Created : ${DOTCACHE}/anyenv.init.zsh"
 fi
 
