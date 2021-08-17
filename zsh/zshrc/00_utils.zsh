@@ -1,6 +1,11 @@
 #!/usr/bin/env zsh
 autoload -Uz colors && colors
-autoload -Uz compinit && compinit -u
+autoload -Uz compinit
+if [[ -e ${ZDOTDIR}/.zcompdump ]]; then
+  compinit -C
+else
+  compinit
+fi
 
 # colors
 function black() {
