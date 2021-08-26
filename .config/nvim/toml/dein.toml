@@ -1,0 +1,45 @@
+# Dein.vim is a dark powered Vim/Neovim plugin manager.
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# This plugin causes trailing whitespace to be highlighted in red.
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+
+# This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces.
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+# Async Language Server Protocol plugin for vim8 and neovim.
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+# Auto configurations for Language Servers for vim-lsp.
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+
+# fzf is a general-purpose command-line fuzzy finder.
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+
+# Things you can do with fzf and Vim.
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_source = '''
+  command! -bang -nargs=* FzfRipGrep
+  \ call fzf#vim#grep(
+  \   'rg --line-number --no-heading --color=always --smart-case --hidden --glob=!.git '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({}, 'right:50%:wrap'), <bang>0)
+  nnoremap <C-g> :FzfRipGrep<CR>
+  nnoremap <silent> <C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
+'''
+
+# The best colorful flat theme for your favorite editor and terminal emulator.
+[[plugins]]
+repo = 'raphamorim/lucario'
+
+# A light and configurable statusline/tabline plugin for Vim
+[[plugins]]
+repo = 'itchyny/lightline.vim'
