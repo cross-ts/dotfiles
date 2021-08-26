@@ -36,6 +36,15 @@ hook_source = '''
   nnoremap <silent> <C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
 '''
 
+# Use the same terminal for everything.
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_source = '''
+  nnoremap t :Tnew<CR>
+  let g:neoterm_default_mod = 'vertical'
+  let g:neoterm_autoinsert = 1
+'''
+
 # The best colorful flat theme for your favorite editor and terminal emulator.
 [[plugins]]
 repo = 'raphamorim/lucario'
