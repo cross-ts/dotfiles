@@ -16,11 +16,11 @@
 
 [[snippets]]
   description = "dein"
-  command = 'nvim -c "try | call dein#update() | finally | qall! | endtry" -N -u $DOTPATH/.vimrc -U NONE -i NONE -V1 -e -s'
+  command = 'nvim --headless -c "try | call dein#update() | finally | qall! | endtry"'
 
 [[snippets]]
   description = "dein"
-  command = 'nvim -c "try | call dein#recache_runtimepath() | finally | qall! | endtry" -N -u $DOTPATH/.vimrc -U NONE -i NONE -V1 -e -s'
+  command = 'nvim --headless -c "try | call dein#recache_runtimepath() | finally | qall! | endtry"'
 
 [[snippets]]
   description = "submodule"
