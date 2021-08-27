@@ -2,9 +2,17 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+
+# Defx is a dark powered plugin for Neovim/Vim to browse files. It replaces the deprecated vimfiler plugin.
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+
 # This plugin causes trailing whitespace to be highlighted in red.
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+hook_source = '''
+  let g:extra_whitespace_ignored_filetypes = ['defx', '']
+'''
 
 # This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces.
 [[plugins]]
