@@ -31,6 +31,13 @@ function docker() {
   esac
 }
 
+function bat() {
+  if [[ ! -e ${HOME}/.cache/bat ]]; then
+    command bat cache --build
+  fi
+  command bat $@
+}
+
 function _fzf_ghq_look() {
   if ! executable ghq; then
     error "zsh: command not found: ghq"
