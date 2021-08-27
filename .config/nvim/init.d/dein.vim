@@ -17,11 +17,21 @@ if &runtimepath !~ '/dein.vim'
   execute 'set runtimepath+=' . s:dein_repo_dir
 endif
 
+let s:base_path = expand('~/')
 let s:toml_dir = expand('~/.config/nvim/toml/')
 let s:toml_path = s:toml_dir . 'dein.toml'
 let s:lazy_toml_path = s:toml_dir . 'dein_lazy.toml'
 
-call dein#begin('~/')
-call dein#load_toml(s:toml_path, {'lazy': 0})
-call dein#load_toml(s:lazy_toml_path, {'lazy': 1})
-call dein#end()
+
+if dein#load_state(s:base_path)
+  let g:dein#cache_directory = expand('~/.cache/dein')
+  call dein#begin(s:base_path)
+  call dein#load_toml(s:toml_path, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml_path, {'lazy': 1})
+  call dein#end()
+  call dein#save_state()
+endif
+
+if dein#check_install()
+  call dein#install()
+endif
