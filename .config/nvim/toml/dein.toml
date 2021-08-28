@@ -6,8 +6,9 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_source = '''
-  autocmd FileType defx call s:defx_settings()
-  function! s:defx_settings() abort
+  nnoremap <C-f> :Defx -show-ignored-files -split=floating<CR>
+  autocmd FileType defx call s:defx_mappings()
+  function! s:defx_mappings() abort
     " カーソル移動周り
     nnoremap <silent><buffer><expr> j
     \ line('.') == line('$') ? 'gg' : 'j'
@@ -74,6 +75,8 @@ hook_source = '''
     \ defx#do_action('repeat')
 
     " vim関係操作まわり
+    nnoremap <silent><buffer><expr> <C-c>
+    \ defx#do_action('quit')
     nnoremap <silent><buffer><expr> q
     \ defx#do_action('quit')
     nnoremap <silent><buffer><expr> yy
