@@ -51,3 +51,4 @@ set undodir=$HOME/.vim/undodir
 
 " ターミナルモードに関する設定
 tnoremap <ESC> <C-\><C-n>
+tnoremap jjj <C-\><C-n>

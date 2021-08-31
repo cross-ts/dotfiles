@@ -6,7 +6,7 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_source = '''
-  nnoremap <C-f> :Defx -show-ignored-files -split=floating<CR>
+  nnoremap <silent><C-f> :Defx<CR>
   autocmd FileType defx call s:defx_mappings()
   function! s:defx_mappings() abort
     " カーソル移動周り
@@ -51,6 +51,14 @@ hook_source = '''
     nnoremap <silent><buffer><expr> yy defx#do_action('yank_path')
     nnoremap <silent><buffer><expr> cd defx#do_action('change_vim_cwd')
   endfunction
+'''
+hook_post_source = '''
+  call defx#custom#option('_', {
+      \ 'show_ignored_files': 1,
+      \ 'auto_cd': 1,
+      \ 'toggle': 1,
+      \ 'split': 'floating',
+      \ })
 '''
 
 # This plugin causes trailing whitespace to be highlighted in red.
@@ -97,8 +105,8 @@ hook_source = '''
     \ 1,
     \ fzf#vim#with_preview({}, 'right:50%:wrap'),
     \ 0)
-  nnoremap <silent> <C-g> :Rg<CR>
-  nnoremap <silent> <C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
+  nnoremap <silent><C-g> :Rg<CR>
+  nnoremap <silent><C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
 '''
 
 # Use the same terminal for everything.
@@ -109,10 +117,22 @@ hook_source = '''
   let g:neoterm_default_mod = 'vertical'
   let g:neoterm_autoinsert = 1
 '''
+hook_post_source = '''
+  augroup terminal
+    autocmd!
+    autocmd TermOpen * startinsert
+    autocmd TermOpen * :set nonumber norelativenumber
+    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
+  augroup END
+'''
 
 # The best colorful flat theme for your favorite editor and terminal emulator.
 [[plugins]]
 repo = 'raphamorim/lucario'
+hook_post_source = '''
+  syntax on
+  colorscheme lucario
+'''
 
 # A light and configurable statusline/tabline plugin for Vim
 [[plugins]]
