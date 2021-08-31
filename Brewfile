@@ -13,11 +13,11 @@ brew 'ctags'
 brew 'ripgrep'
 
 # git
+brew 'hub'
 brew 'git'
 brew 'git-extras'
 brew 'git-flow'
 brew 'ghq'
-brew 'hub'
 tap 'github/gh'
 brew 'gh'
 
@@ -31,16 +31,21 @@ brew 'coreutils'
 brew 'anyenv'
 
 # command line tools
-brew 'htop'
-brew 'tig'
-brew 'jq'
-brew 'jid'
+tap "itchyny/tap"
+tap "knqyf263/pet"
+brew "ansible"
 brew 'bat'
 brew 'fzf'
-brew 'tmux'
-brew 'tree'
+brew 'htop'
+brew 'hugo'
+brew "itchyny/tap/mmv"
+brew 'jid'
+brew 'jq'
 brew 'knqyf263/pet/pet'
 brew 'percona-toolkit'
+brew 'tig'
+brew 'tmux'
+brew 'tree'
 
 # AWS
 tap 'aws/tap'
@@ -48,9 +53,13 @@ brew 'awscli'
 brew 'aws-sam-cli'
 
 # cask
-cask 'google-chrome'
-cask 'docker'
-cask 'iterm2'
-cask 'sequel-pro'
-cask 'deepl'
+tap "homebrew/cask"
 cask '1password'
+cask "alacritty"
+cask "discord"
+cask 'deepl'
+cask 'docker'
+cask 'google-chrome'
+cask 'iterm2'
+cask 'sequel-ace'
+cask "slack"
