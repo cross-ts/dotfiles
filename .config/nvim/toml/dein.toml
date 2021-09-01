@@ -60,7 +60,18 @@ hook_post_source = '''
       \ 'show_ignored_files': 1,
       \ 'auto_cd': 1,
       \ 'toggle': 1,
-      \ 'split': 'floating',
+      \ 'split': 'vertical',
+      \ 'winwidth': 30,
+      \ 'direction': 'topleft',
+      \ 'resume': 1,
+      \ })
+  call defx#custom#column('icon', {
+      \ 'directory_icon': '▸ ',
+      \ 'opened_icon': '▾ ',
+      \ })
+  call defx#custom#column('mark', {
+      \ 'readonly_icon': '✗',
+      \ 'selected_icon': '✓',
       \ })
 '''
 
