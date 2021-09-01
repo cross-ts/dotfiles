@@ -64,11 +64,11 @@ hook_post_source = '''
       \ })
 '''
 
-# This plugin causes trailing whitespace to be highlighted in red.
+# This plugin causes all trailing whitespace characters (see Supported Whitespace Characters below) to be highlighted.
 [[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
+repo = 'ntpeters/vim-better-whitespace'
 hook_source = '''
-  let g:extra_whitespace_ignored_filetypes = ['defx', '']
+  let g:strip_whitespace_on_save = 1
 '''
 
 # This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces.
