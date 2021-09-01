@@ -9,6 +9,9 @@ hook_source = '''
   nnoremap <silent><C-f> :Defx<CR>
   autocmd FileType defx call s:defx_mappings()
   function! s:defx_mappings() abort
+    " 行数表示を止める
+    set nonumber norelativenumber
+
     " カーソル移動周り
     nnoremap <silent><buffer><expr> j line('.') == line('$') ? 'gg' : 'j'
     nnoremap <silent><buffer><expr> k line('.') == 1 ? 'G' : 'k'
