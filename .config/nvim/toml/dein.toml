@@ -95,14 +95,24 @@ repo = 'prabirshrestha/vim-lsp'
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 
-# Vim plugin to use Tig as a git client.
-# NOTE: Neovimだとterminal周りのexpand挙動が違いeditが動かないのでfork
+# 👌 Support for --remote and friends.
 [[plugins]]
-repo = 'cross-ts/tig-explorer.vim'
+repo = 'mhinz/neovim-remote'
+build = 'pip install -e .'
 hook_source = '''
-  let g:tig_explorer_use_builtin_term=1
+  let nvrcmd = "nvr --remote-wait"
+  let $VISUAL     = nvrcmd
+  let $GIT_EDITOR = nvrcmd
+
+  autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+  nnoremap <silent> <Space>t :<C-u>silent call <SID>tig_status()<CR>
+  function! s:tig_status() abort
+    call execute('vsplit term://tig status')
+    setlocal bufhidden=delete
+    setlocal noswapfile
+    setlocal nobuflisted
+  endfunction
 '''
-rev = 'feature/use_args_instead_of_func'
 
 # fzf is a general-purpose command-line fuzzy finder.
 [[plugins]]
