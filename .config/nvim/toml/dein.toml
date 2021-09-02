@@ -17,6 +17,7 @@ hook_source = '''
     nnoremap <silent><buffer><expr> k line('.') == 1 ? 'G' : 'k'
     nnoremap <silent><buffer><expr> l defx#do_action('drop')
     nnoremap <silent><buffer><expr> h defx#do_action('cd', ['..'])
+    nnoremap <silent><buffer><expr> gr defx#do_action('cd', [trim(system('git rev-parse --show-cdup'))])
 
     " エディット周り
     nnoremap <silent><buffer><expr> <CR> defx#is_directory() ? defx#do_action('open_or_close_tree') : defx#do_action('drop')
