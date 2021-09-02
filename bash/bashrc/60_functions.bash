@@ -30,3 +30,10 @@ function docker() {
     *) command docker $@ ;;
   esac
 }
+
+function bat() {
+  if [[ ! -e ${HOME}/.cache/bat ]]; then
+    command bat cache --build
+  fi
+  command bat $@
+}

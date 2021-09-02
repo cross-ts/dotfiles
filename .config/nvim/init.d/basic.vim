@@ -23,7 +23,6 @@ nnoremap sl <C-w>l
 nnoremap sw <C-w>w
 nnoremap Y y$
 inoremap <silent> jj <ESC>
-nnoremap <cr> za
 nnoremap ; :
 
 " open new window in right
