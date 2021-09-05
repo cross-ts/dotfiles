@@ -51,3 +51,7 @@ set undodir=$HOME/.vim/undodir
 
 " ターミナルモードに関する設定
 tnoremap <ESC> <C-\><C-n>
+tnoremap ;; <C-\><C-n>
+
+" Leader keyの設定
+let mapleader = "\<Space>"
