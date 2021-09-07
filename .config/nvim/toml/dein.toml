@@ -118,6 +118,12 @@ hook_add = '''
     setlocal noswapfile
     setlocal nobuflisted
   endfunction
+  augroup terminal
+    autocmd!
+    autocmd TermOpen * startinsert
+    autocmd TermOpen * :set nonumber norelativenumber
+    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
+  augroup END
 '''
 
 # fzf is a general-purpose command-line fuzzy finder.
@@ -147,12 +153,6 @@ repo = 'kassio/neoterm'
 hook_add = '''
   nnoremap <Leader>tn :vertical Tnew<CR>
   let g:neoterm_autoinsert = 1
-  augroup terminal
-    autocmd!
-    autocmd TermOpen * startinsert
-    autocmd TermOpen * :set nonumber norelativenumber
-    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
-  augroup END
 '''
 
 # Vim motion on speed!
