@@ -59,6 +59,7 @@ hook_source = '''
 hook_post_source = '''
   call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
+      \ 'columns': 'mark:indent:icon:filename:type',
       \ 'auto_cd': 1,
       \ 'toggle': 1,
       \ 'split': 'vertical',
