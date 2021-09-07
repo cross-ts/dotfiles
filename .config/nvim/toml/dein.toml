@@ -88,6 +88,13 @@ hook_source = '''
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
+# Rainbow Parentheses Improved, shorter code, no level limit, smooth and fast, powerful configuration.
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_source = '''
+  let g:rainbow_active = 1
+'''
+
 # Async Language Server Protocol plugin for vim8 and neovim.
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
