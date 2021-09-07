@@ -1,10 +1,16 @@
 # Vim syntax for TOML.
 [[plugins]]
 repo = 'cespare/vim-toml'
-on_ft = 'toml'
+on_ft = ['toml']
 
 # Syntax file from http://www.vim.org/scripts/script.php?script_id=739
 # NOTE: Vim7.4時代はyamlのsyntax highlight遅かったけど今どうなのかわからない
 [[plugins]]
 repo = 'stephpy/vim-yaml'
 on_ft = ['yaml']
+
+# markdown preview plugin for (neo)vim
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+build = 'sh -c "cd app && yarn install"'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
