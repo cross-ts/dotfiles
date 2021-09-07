@@ -162,8 +162,6 @@ hook_post_source = '''
 # Vim motion on speed!
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
-hook_source = '''
-'''
 
 # The best colorful flat theme for your favorite editor and terminal emulator.
 [[plugins]]
