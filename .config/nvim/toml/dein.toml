@@ -5,7 +5,7 @@ repo = 'Shougo/dein.vim'
 # Defx is a dark powered plugin for Neovim/Vim to browse files. It replaces the deprecated vimfiler plugin.
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-hook_source = '''
+hook_add = '''
   nnoremap <Leader>d :Defx<CR>
   autocmd FileType defx call s:defx_mappings()
   function! s:defx_mappings() abort
@@ -55,8 +55,6 @@ hook_source = '''
     nnoremap <silent><buffer><expr> yy defx#do_action('yank_path')
     nnoremap <silent><buffer><expr> cd defx#do_action('change_vim_cwd')
   endfunction
-'''
-hook_post_source = '''
   call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
       \ 'columns': 'mark:indent:icon:filename:type',
@@ -80,7 +78,7 @@ hook_post_source = '''
 # This plugin causes all trailing whitespace characters (see Supported Whitespace Characters below) to be highlighted.
 [[plugins]]
 repo = 'ntpeters/vim-better-whitespace'
-hook_source = '''
+hook_add = '''
   let g:strip_whitespace_on_save = 1
 '''
 
@@ -91,7 +89,7 @@ repo = 'Yggdroot/indentLine'
 # Rainbow Parentheses Improved, shorter code, no level limit, smooth and fast, powerful configuration.
 [[plugins]]
 repo = 'luochen1990/rainbow'
-hook_source = '''
+hook_add = '''
   let g:rainbow_active = 1
 '''
 
@@ -107,7 +105,7 @@ repo = 'mattn/vim-lsp-settings'
 [[plugins]]
 repo = 'mhinz/neovim-remote'
 build = 'pip install -e .'
-hook_source = '''
+hook_add = '''
   let nvrcmd = "nvr --remote-wait"
   let $VISUAL     = nvrcmd
   let $GIT_EDITOR = nvrcmd
@@ -131,7 +129,7 @@ build = './install --bin'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
-hook_source = '''
+hook_add = '''
   command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
     \ 'rg --line-number --no-heading --color=always --smart-case --hidden --glob=!.git '.shellescape(<q-args>),
@@ -146,11 +144,9 @@ hook_source = '''
 # Use the same terminal for everything.
 [[plugins]]
 repo = 'kassio/neoterm'
-hook_source = '''
+hook_add = '''
   nnoremap <Leader>tn :vertical Tnew<CR>
   let g:neoterm_autoinsert = 1
-'''
-hook_post_source = '''
   augroup terminal
     autocmd!
     autocmd TermOpen * startinsert
@@ -166,7 +162,7 @@ repo = 'easymotion/vim-easymotion'
 # The best colorful flat theme for your favorite editor and terminal emulator.
 [[plugins]]
 repo = 'raphamorim/lucario'
-hook_post_source = '''
+hook_add = '''
   syntax on
   colorscheme lucario
 '''
