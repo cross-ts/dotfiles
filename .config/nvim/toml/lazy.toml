@@ -129,14 +129,7 @@ hook_post_source = '''
   nnoremap <silent><C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
 '''
 
-# Use the same terminal for everything.
 [[plugins]]
-repo = 'kassio/neoterm'
-on_map = ['<Leader>tn']
-hook_post_source = '''
-  nnoremap <Leader>tn :vertical Tnew<CR>
-  let g:neoterm_autoinsert = 1
-'''
 
 # 👌 Support for --remote and friends.
 [[plugins]]
