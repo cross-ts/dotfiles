@@ -1,14 +1,3 @@
 # Dein.vim is a dark powered Vim/Neovim plugin manager.
 [[plugins]]
 repo = 'Shougo/dein.vim'
-
-# This plugin causes all trailing whitespace characters (see Supported Whitespace Characters below) to be highlighted.
-[[plugins]]
-repo = 'ntpeters/vim-better-whitespace'
-hook_add = '''
-  let g:strip_whitespace_on_save = 1
-'''
-
-# Vim motion on speed!
-[[plugins]]
-repo = 'easymotion/vim-easymotion'

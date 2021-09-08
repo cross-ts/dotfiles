@@ -32,6 +32,19 @@ on_event = ['BufEnter']
 repo = 'Yggdroot/indentLine'
 on_event = ['BufEnter']
 
+# Vim motion on speed!
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_event = ['BufEnter']
+
+# This plugin causes all trailing whitespace characters (see Supported Whitespace Characters below) to be highlighted.
+[[plugins]]
+repo = 'ntpeters/vim-better-whitespace'
+on_event = ['BufEnter']
+hook_add = '''
+  let g:strip_whitespace_on_save = 1
+'''
+
 # Defx is a dark powered plugin for Neovim/Vim to browse files. It replaces the deprecated vimfiler plugin.
 [[plugins]]
 repo = 'Shougo/defx.nvim'
