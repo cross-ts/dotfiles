@@ -61,5 +61,5 @@ augroup terminal
   autocmd TermOpen * startinsert
   autocmd TermOpen * :set nonumber norelativenumber bufhidden=delete noswapfile nobuflisted
   autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
-  autocmd TermClose * call feedkeys("<CR>")
+  autocmd TermClose * if &ft != 'fzf' | call feedkeys("\<CR>") | endif
 augroup END
