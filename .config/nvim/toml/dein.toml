@@ -90,39 +90,6 @@ repo = 'prabirshrestha/vim-lsp'
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
 
-# 👌 Support for --remote and friends.
-[[plugins]]
-repo = 'mhinz/neovim-remote'
-build = 'pip install -e .'
-hook_add = '''
-  let nvrcmd = "nvr --remote-wait"
-  let $VISUAL     = nvrcmd
-  let $GIT_EDITOR = nvrcmd
-
-  autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
-  nnoremap <silent> <Leader>tig :<C-u>silent call <SID>tig_status()<CR>
-  function! s:tig_status() abort
-    call execute('vsplit term://tig status')
-    setlocal bufhidden=delete
-    setlocal noswapfile
-    setlocal nobuflisted
-  endfunction
-  augroup terminal
-    autocmd!
-    autocmd TermOpen * startinsert
-    autocmd TermOpen * :set nonumber norelativenumber
-    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
-  augroup END
-'''
-
-# Use the same terminal for everything.
-[[plugins]]
-repo = 'kassio/neoterm'
-hook_add = '''
-  nnoremap <Leader>tn :vertical Tnew<CR>
-  let g:neoterm_autoinsert = 1
-'''
-
 # Vim motion on speed!
 [[plugins]]
 repo = 'easymotion/vim-easymotion'

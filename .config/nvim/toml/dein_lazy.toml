@@ -54,3 +54,38 @@ hook_post_source = '''
   nnoremap <silent><Leader>f :call fzf#vim#files(trim(system('git rev-parse --show-cdup')), fzf#vim#with_preview({'options': ['--color=16']}, 'right:50%:wrap'), 0)<CR>
   nnoremap <silent><C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
 '''
+
+# Use the same terminal for everything.
+[[plugins]]
+repo = 'kassio/neoterm'
+on_map = ['<Leader>tn']
+hook_post_source = '''
+  nnoremap <Leader>tn :vertical Tnew<CR>
+  let g:neoterm_autoinsert = 1
+'''
+
+# 👌 Support for --remote and friends.
+[[plugins]]
+repo = 'mhinz/neovim-remote'
+build = 'pip install -e .'
+on_map = ['<Leader>tig']
+hook_post_source = '''
+  let nvrcmd = "nvr --remote-wait"
+  let $VISUAL     = nvrcmd
+  let $GIT_EDITOR = nvrcmd
+
+  autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+  nnoremap <silent> <Leader>tig :<C-u>silent call <SID>tig_status()<CR>
+  function! s:tig_status() abort
+    call execute('vsplit term://tig status')
+    setlocal bufhidden=delete
+    setlocal noswapfile
+    setlocal nobuflisted
+  endfunction
+  augroup terminal
+    autocmd!
+    autocmd TermOpen * startinsert
+    autocmd TermOpen * :set nonumber norelativenumber
+    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
+  augroup END
+'''
