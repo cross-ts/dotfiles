@@ -19,18 +19,14 @@ endif
 
 let s:base_path = expand('~/')
 let s:toml_dir = expand('~/.config/nvim/toml/')
-let s:toml_path = s:toml_dir . 'dein.toml'
-let s:event_lazy_toml_path = s:toml_dir . 'dein_lazy_event.toml'
-let s:filetype_lazy_toml_path = s:toml_dir . 'dein_lazy_filetype.toml'
-let s:leader_lazy_toml_path = s:toml_dir . 'dein_lazy_leader.toml'
+let s:always_toml = s:toml_dir . 'always.toml'
+let s:lazy_toml   = s:toml_dir . 'lazy.toml'
 
 if dein#load_state(s:base_path)
   let g:dein#cache_directory = expand('~/.cache/dein')
   call dein#begin(s:base_path)
-  call dein#load_toml(s:toml_path, {'lazy': 0})
-  call dein#load_toml(s:event_lazy_toml_path, {'lazy': 1})
-  call dein#load_toml(s:filetype_lazy_toml_path, {'lazy': 1})
-  call dein#load_toml(s:leader_lazy_toml_path, {'lazy': 1})
+  call dein#load_toml(s:always_toml, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml,   {'lazy': 1})
   call dein#end()
   call dein#save_state()
 endif
