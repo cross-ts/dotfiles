@@ -129,7 +129,7 @@ hook_add = '''
   \ call fzf#vim#grep(
     \ 'rg --line-number --no-heading --color=always --smart-case --hidden --glob=!.git '.shellescape(<q-args>),
     \ 1,
-    \ fzf#vim#with_preview({}, 'right:50%:wrap'),
+    \ fzf#vim#with_preview({'options': ['--color=16']}, 'right:50%:wrap'),
     \ 0)
   nnoremap <silent><Leader>g :Rg<CR>
   nnoremap <silent><Leader>f :call fzf#vim#files(trim(system('git rev-parse --show-cdup')), fzf#vim#with_preview({'options': ['--color=16']}, 'right:50%:wrap'), 0)<CR>

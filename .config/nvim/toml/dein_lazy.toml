@@ -30,4 +30,4 @@ on_event = ['BufEnter']
 # This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces.
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-on_event = ['InsertEnter']
+on_event = ['BufEnter']
