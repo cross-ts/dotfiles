@@ -1,3 +1,0 @@
-# Dein.vim is a dark powered Vim/Neovim plugin manager.
-[[plugins]]
-repo = 'Shougo/dein.vim'

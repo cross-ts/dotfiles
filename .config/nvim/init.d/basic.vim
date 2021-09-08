@@ -59,7 +59,7 @@ nnoremap <Leader>tn :silent vsplit \| terminal<CR>
 augroup terminal
   autocmd!
   autocmd TermOpen * startinsert
-  autocmd TermOpen * :set nonumber norelativenumber
+  autocmd TermOpen * :set nonumber norelativenumber bufhidden=delete noswapfile nobuflisted
   autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
   autocmd TermClose * :q
 augroup END
