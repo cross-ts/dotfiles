@@ -157,12 +157,6 @@ hook_post_source = '''
     setlocal noswapfile
     setlocal nobuflisted
   endfunction
-  augroup terminal
-    autocmd!
-    autocmd TermOpen * startinsert
-    autocmd TermOpen * :set nonumber norelativenumber
-    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
-  augroup END
 '''
 
 # Vim syntax for TOML.
