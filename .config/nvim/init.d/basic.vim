@@ -1,3 +1,6 @@
+" Leader keyの設定
+let mapleader = "\<Space>"
+
 " インデントに関する設定
 set autoindent
 set smartindent
@@ -51,3 +54,12 @@ set undodir=$HOME/.vim/undodir
 
 " ターミナルモードに関する設定
 tnoremap <ESC> <C-\><C-n>
+tnoremap ;; <C-\><C-n>
+nnoremap <Leader>tn :silent vsplit \| terminal<CR>
+augroup terminal
+  autocmd!
+  autocmd TermOpen * startinsert
+  autocmd TermOpen * :set nonumber norelativenumber bufhidden=delete noswapfile nobuflisted
+  autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
+  autocmd TermClose * if &ft != 'fzf' | call feedkeys("\<CR>") | endif
+augroup END

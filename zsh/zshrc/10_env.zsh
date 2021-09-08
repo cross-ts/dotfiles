@@ -43,3 +43,6 @@ fi
 ### __git_ps1
 export GIT_PS1_SHOWUPSTREAM=1
 export GIT_PS1_SHOWDIRTYSTATE=1
+
+### fzf#vim#files
+export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'

@@ -3,6 +3,10 @@
   command = "for i in $(seq 1 10); do time zsh -i -c exit; done"
 
 [[snippets]]
+  description = "benchmark"
+  command = "for i in $(seq 1 10); do time nvim --headless -c 'qall!' --startuptime bench; done"
+
+[[snippets]]
   description = "brew"
   command = "brew upgrade; brew cleanup --prune=all -v; brew doctor"
 

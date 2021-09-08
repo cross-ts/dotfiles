@@ -1,12 +1,56 @@
-# Dein.vim is a dark powered Vim/Neovim plugin manager.
+# The best colorful flat theme for your favorite editor and terminal emulator.
 [[plugins]]
-repo = 'Shougo/dein.vim'
+repo = 'raphamorim/lucario'
+on_event = ['VimEnter']
+hook_add = '''
+  syntax on
+'''
+hook_post_source = '''
+  autocmd VimEnter * ++nested colorscheme lucario
+'''
+
+# # A light and configurable statusline/tabline plugin for Vim
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+on_event = ['ColorScheme']
+
+# Rainbow Parentheses Improved, shorter code, no level limit, smooth and fast, powerful configuration.
+[[plugins]]
+repo = 'luochen1990/rainbow'
+on_event = ['BufEnter']
+hook_source = '''
+  let g:rainbow_active = 1
+'''
+
+# Auto close parentheses and repeat by dot dot dot...
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_event = ['BufEnter']
+
+# This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces.
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+on_event = ['BufEnter']
+
+# Vim motion on speed!
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+on_event = ['BufEnter']
+
+# This plugin causes all trailing whitespace characters (see Supported Whitespace Characters below) to be highlighted.
+[[plugins]]
+repo = 'ntpeters/vim-better-whitespace'
+on_event = ['BufEnter']
+hook_add = '''
+  let g:strip_whitespace_on_save = 1
+'''
 
 # Defx is a dark powered plugin for Neovim/Vim to browse files. It replaces the deprecated vimfiler plugin.
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-hook_source = '''
-  nnoremap <silent><C-f> :Defx<CR>
+on_map = ['<Leader>d']
+hook_post_source = '''
+  nnoremap <Leader>d :Defx<CR>
   autocmd FileType defx call s:defx_mappings()
   function! s:defx_mappings() abort
     " 行数表示を止める
@@ -55,10 +99,9 @@ hook_source = '''
     nnoremap <silent><buffer><expr> yy defx#do_action('yank_path')
     nnoremap <silent><buffer><expr> cd defx#do_action('change_vim_cwd')
   endfunction
-'''
-hook_post_source = '''
   call defx#custom#option('_', {
       \ 'show_ignored_files': 1,
+      \ 'columns': 'mark:indent:icon:filename:type',
       \ 'auto_cd': 1,
       \ 'toggle': 1,
       \ 'split': 'vertical',
@@ -76,89 +119,68 @@ hook_post_source = '''
       \ })
 '''
 
-# This plugin causes all trailing whitespace characters (see Supported Whitespace Characters below) to be highlighted.
-[[plugins]]
-repo = 'ntpeters/vim-better-whitespace'
-hook_source = '''
-  let g:strip_whitespace_on_save = 1
-'''
-
-# This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces.
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-
-# Async Language Server Protocol plugin for vim8 and neovim.
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-
-# Auto configurations for Language Servers for vim-lsp.
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-
-# 👌 Support for --remote and friends.
-[[plugins]]
-repo = 'mhinz/neovim-remote'
-build = 'pip install -e .'
-hook_source = '''
-  let nvrcmd = "nvr --remote-wait"
-  let $VISUAL     = nvrcmd
-  let $GIT_EDITOR = nvrcmd
-
-  autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
-  nnoremap <silent> <Space>t :<C-u>silent call <SID>tig_status()<CR>
-  function! s:tig_status() abort
-    call execute('vsplit term://tig status')
-    setlocal bufhidden=delete
-    setlocal noswapfile
-    setlocal nobuflisted
-  endfunction
-'''
-
 # fzf is a general-purpose command-line fuzzy finder.
 [[plugins]]
 repo = 'junegunn/fzf'
+on_source = 'fzf.vim'
 build = './install --bin'
 
 # Things you can do with fzf and Vim.
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+on_map = ['<Leader>g', '<Leader>f', '<C-]>']
 depends = 'fzf'
-hook_source = '''
+hook_post_source = '''
   command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
     \ 'rg --line-number --no-heading --color=always --smart-case --hidden --glob=!.git '.shellescape(<q-args>),
     \ 1,
-    \ fzf#vim#with_preview({}, 'right:50%:wrap'),
+    \ fzf#vim#with_preview({'options': ['--color=16']}, 'right:50%:wrap'),
     \ 0)
-  nnoremap <silent><C-g> :Rg<CR>
+  nnoremap <silent><Leader>g :Rg<CR>
+  nnoremap <silent><Leader>f :call fzf#vim#files(trim(system('git rev-parse --show-cdup')), fzf#vim#with_preview({'options': ['--color=16']}, 'right:50%:wrap'), 0)<CR>
   nnoremap <silent><C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
 '''
 
-# Use the same terminal for everything.
+# Async Language Server Protocol plugin for vim8 and neovim.
 [[plugins]]
-repo = 'kassio/neoterm'
-hook_source = '''
-  nnoremap t :Tnew<CR>
-  let g:neoterm_default_mod = 'vertical'
-  let g:neoterm_autoinsert = 1
-'''
+repo = 'prabirshrestha/vim-lsp'
+on_ft = ['*']
+
+# Auto configurations for Language Servers for vim-lsp.
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+on_source = ['vim-lsp']
+
+# 👌 Support for --remote and friends.
+[[plugins]]
+repo = 'mhinz/neovim-remote'
+build = 'pip install -e .'
+on_map = ['<Leader>tig']
 hook_post_source = '''
-  augroup terminal
-    autocmd!
-    autocmd TermOpen * startinsert
-    autocmd TermOpen * :set nonumber norelativenumber
-    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
-  augroup END
+  let $VISUAL     = "nvr --remote-wait"
+  let $GIT_EDITOR = "nvr --remote-wait"
+  autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+  nnoremap <silent> <Leader>tig :<C-u>silent vsplit \| terminal tig status<CR>
 '''
 
-# The best colorful flat theme for your favorite editor and terminal emulator.
+# Vim syntax for TOML.
 [[plugins]]
-repo = 'raphamorim/lucario'
-hook_post_source = '''
-  syntax on
-  colorscheme lucario
-'''
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
 
-# A light and configurable statusline/tabline plugin for Vim
+# Syntax file from http://www.vim.org/scripts/script.php?script_id=739
+# NOTE: Vim7.4時代はyamlのsyntax highlight遅かったけど今どうなのかわからない
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = 'stephpy/vim-yaml'
+on_ft = ['yaml']
+
+# markdown preview plugin for (neo)vim
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+build = 'sh -c "cd app && yarn install"'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+
+# Dein.vim is a dark powered Vim/Neovim plugin manager.
+[[plugins]]
+repo = 'Shougo/dein.vim'
