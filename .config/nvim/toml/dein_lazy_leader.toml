@@ -1,0 +1,131 @@
+# Defx is a dark powered plugin for Neovim/Vim to browse files. It replaces the deprecated vimfiler plugin.
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+on_map = ['<Leader>d']
+hook_post_source = '''
+  nnoremap <Leader>d :Defx<CR>
+  autocmd FileType defx call s:defx_mappings()
+  function! s:defx_mappings() abort
+    " 行数表示を止める
+    set nonumber norelativenumber
+
+    " カーソル移動周り
+    nnoremap <silent><buffer><expr> j line('.') == line('$') ? 'gg' : 'j'
+    nnoremap <silent><buffer><expr> k line('.') == 1 ? 'G' : 'k'
+    nnoremap <silent><buffer><expr> l defx#do_action('drop')
+    nnoremap <silent><buffer><expr> h defx#do_action('cd', ['..'])
+    nnoremap <silent><buffer><expr> gr defx#do_action('cd', [trim(system('git rev-parse --show-cdup'))])
+
+    " エディット周り
+    nnoremap <silent><buffer><expr> <CR> defx#is_directory() ? defx#do_action('open_or_close_tree') : defx#do_action('drop')
+    nnoremap <silent><buffer><expr> o defx#is_directory() ? defx#do_action('open_or_close_tree') : defx#do_action('drop')
+    nnoremap <silent><buffer><expr> E defx#do_action('drop', 'vsplit')
+
+    " ファイル操作
+    nnoremap <silent><buffer><expr> c defx#do_action('copy')
+    nnoremap <silent><buffer><expr> p defx#do_action('paste')
+    nnoremap <silent><buffer><expr> m defx#do_action('move')
+    nnoremap <silent><buffer><expr> r defx#do_action('rename')
+    nnoremap <silent><buffer><expr> d defx#do_action('remove')
+    nnoremap <silent><buffer><expr> K defx#do_action('new_directory')
+    nnoremap <silent><buffer><expr> N defx#do_action('new_file')
+    nnoremap <silent><buffer><expr> M defx#do_action('new_multiple_files')
+    nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select') . 'j'
+    nnoremap <silent><buffer><expr> * defx#do_action('toggle_select_all')
+
+    " 表示周り
+    nnoremap <silent><buffer><expr> . defx#do_action('toggle_ignored_files')
+    nnoremap <silent><buffer><expr> C defx#do_action('toggle_columns', 'mark:indent:icon:filename:type:size:time')
+    nnoremap <silent><buffer><expr> S defx#do_action('toggle_sort', 'time')
+    nnoremap <silent><buffer><expr> P defx#do_action('preview')
+    nnoremap <silent><buffer><expr> <C-l> defx#do_action('redraw')
+    nnoremap <silent><buffer><expr> <C-g> defx#do_action('print')
+
+    " コマンド等実行周り
+    nnoremap <silent><buffer><expr> !  defx#do_action('execute_command')
+    nnoremap <silent><buffer><expr> x defx#do_action('execute_system')
+    nnoremap <silent><buffer><expr> ; defx#do_action('repeat')
+
+    " vim関係操作まわり
+    nnoremap <silent><buffer><expr> <C-c> defx#do_action('quit')
+    nnoremap <silent><buffer><expr> q defx#do_action('quit')
+    nnoremap <silent><buffer><expr> yy defx#do_action('yank_path')
+    nnoremap <silent><buffer><expr> cd defx#do_action('change_vim_cwd')
+  endfunction
+  call defx#custom#option('_', {
+      \ 'show_ignored_files': 1,
+      \ 'columns': 'mark:indent:icon:filename:type',
+      \ 'auto_cd': 1,
+      \ 'toggle': 1,
+      \ 'split': 'vertical',
+      \ 'winwidth': 30,
+      \ 'direction': 'topleft',
+      \ 'resume': 1,
+      \ })
+  call defx#custom#column('icon', {
+      \ 'directory_icon': '▸ ',
+      \ 'opened_icon': '▾ ',
+      \ })
+  call defx#custom#column('mark', {
+      \ 'readonly_icon': '✗',
+      \ 'selected_icon': '✓',
+      \ })
+'''
+
+# fzf is a general-purpose command-line fuzzy finder.
+[[plugins]]
+repo = 'junegunn/fzf'
+on_source = 'fzf.vim'
+build = './install --bin'
+
+# Things you can do with fzf and Vim.
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+on_map = ['<Leader>g', '<Leader>f', '<C-]>']
+depends = 'fzf'
+hook_post_source = '''
+  command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+    \ 'rg --line-number --no-heading --color=always --smart-case --hidden --glob=!.git '.shellescape(<q-args>),
+    \ 1,
+    \ fzf#vim#with_preview({'options': ['--color=16']}, 'right:50%:wrap'),
+    \ 0)
+  nnoremap <silent><Leader>g :Rg<CR>
+  nnoremap <silent><Leader>f :call fzf#vim#files(trim(system('git rev-parse --show-cdup')), fzf#vim#with_preview({'options': ['--color=16']}, 'right:50%:wrap'), 0)<CR>
+  nnoremap <silent><C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
+'''
+
+# Use the same terminal for everything.
+[[plugins]]
+repo = 'kassio/neoterm'
+on_map = ['<Leader>tn']
+hook_post_source = '''
+  nnoremap <Leader>tn :vertical Tnew<CR>
+  let g:neoterm_autoinsert = 1
+'''
+
+# 👌 Support for --remote and friends.
+[[plugins]]
+repo = 'mhinz/neovim-remote'
+build = 'pip install -e .'
+on_map = ['<Leader>tig']
+hook_post_source = '''
+  let nvrcmd = "nvr --remote-wait"
+  let $VISUAL     = nvrcmd
+  let $GIT_EDITOR = nvrcmd
+
+  autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
+  nnoremap <silent> <Leader>tig :<C-u>silent call <SID>tig_status()<CR>
+  function! s:tig_status() abort
+    call execute('vsplit term://tig status')
+    setlocal bufhidden=delete
+    setlocal noswapfile
+    setlocal nobuflisted
+  endfunction
+  augroup terminal
+    autocmd!
+    autocmd TermOpen * startinsert
+    autocmd TermOpen * :set nonumber norelativenumber
+    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
+  augroup END
+'''
