@@ -82,17 +82,6 @@ hook_add = '''
   let g:strip_whitespace_on_save = 1
 '''
 
-# This plugin is used for displaying thin vertical lines at each indentation level for code indented with spaces.
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-
-# Rainbow Parentheses Improved, shorter code, no level limit, smooth and fast, powerful configuration.
-[[plugins]]
-repo = 'luochen1990/rainbow'
-hook_add = '''
-  let g:rainbow_active = 1
-'''
-
 # Async Language Server Protocol plugin for vim8 and neovim.
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
@@ -158,15 +147,3 @@ hook_add = '''
 # Vim motion on speed!
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
-
-# The best colorful flat theme for your favorite editor and terminal emulator.
-[[plugins]]
-repo = 'raphamorim/lucario'
-hook_add = '''
-  syntax on
-  colorscheme lucario
-'''
-
-# A light and configurable statusline/tabline plugin for Vim
-[[plugins]]
-repo = 'itchyny/lightline.vim'
