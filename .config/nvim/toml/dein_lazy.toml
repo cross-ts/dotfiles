@@ -31,3 +31,26 @@ on_event = ['BufEnter']
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 on_event = ['BufEnter']
+
+# fzf is a general-purpose command-line fuzzy finder.
+[[plugins]]
+repo = 'junegunn/fzf'
+on_source = 'fzf.vim'
+build = './install --bin'
+
+# Things you can do with fzf and Vim.
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+on_map = ['<Leader>g', '<Leader>f', '<C-]>']
+depends = 'fzf'
+hook_post_source = '''
+  command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+    \ 'rg --line-number --no-heading --color=always --smart-case --hidden --glob=!.git '.shellescape(<q-args>),
+    \ 1,
+    \ fzf#vim#with_preview({'options': ['--color=16']}, 'right:50%:wrap'),
+    \ 0)
+  nnoremap <silent><Leader>g :Rg<CR>
+  nnoremap <silent><Leader>f :call fzf#vim#files(trim(system('git rev-parse --show-cdup')), fzf#vim#with_preview({'options': ['--color=16']}, 'right:50%:wrap'), 0)<CR>
+  nnoremap <silent><C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
+'''
