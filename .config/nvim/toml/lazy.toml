@@ -129,7 +129,15 @@ hook_post_source = '''
   nnoremap <silent><C-]> :call fzf#vim#tags(expand('<cword>'))<CR>
 '''
 
+# Async Language Server Protocol plugin for vim8 and neovim.
 [[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+on_ft = ['*']
+
+# Auto configurations for Language Servers for vim-lsp.
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+on_source = ['vim-lsp']
 
 # 👌 Support for --remote and friends.
 [[plugins]]

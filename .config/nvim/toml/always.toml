@@ -9,14 +9,6 @@ hook_add = '''
   let g:strip_whitespace_on_save = 1
 '''
 
-# Async Language Server Protocol plugin for vim8 and neovim.
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-
-# Auto configurations for Language Servers for vim-lsp.
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-
 # Vim motion on speed!
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
