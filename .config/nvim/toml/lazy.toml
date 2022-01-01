@@ -195,6 +195,11 @@ repo = 'iamcco/markdown-preview.nvim'
 build = 'sh -c "cd app && yarn install"'
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 
+# A Filetype plugin for csv files
+[[plugins]]
+repo = 'chrisbra/csv.vim'
+on_ft = ['csv']
+
 # Dein.vim is a dark powered Vim/Neovim plugin manager.
 [[plugins]]
 repo = 'Shougo/dein.vim'
