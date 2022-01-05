@@ -23,6 +23,7 @@ fi
 ### subcommands ###
 add_path "${DOTPATH}/subcommands/git"
 add_path "${DOTPATH}/subcommands/docker"
+add_path "${DOTPATH}/subcommands/aws"
 
 ### golang ###
 export GOPATH=${HOME}

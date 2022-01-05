@@ -31,6 +31,14 @@ function docker() {
   esac
 }
 
+function aws() {
+  case $1 in
+    account) aws-account ${@:2} ;;
+    ec2) aws-ec2 ${@:2} ;;
+    *) command aws $@ ;;
+  esac
+}
+
 function bat() {
   if [[ ! -e ${HOME}/.cache/bat ]]; then
     command bat cache --build
