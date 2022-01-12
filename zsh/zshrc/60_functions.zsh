@@ -35,6 +35,7 @@ function aws() {
   case $1 in
     account) aws-account ${@:2} ;;
     ec2) aws-ec2 ${@:2} ;;
+    ssm) aws-ssm ${@:2} ;;
     *) command aws $@ ;;
   esac
 }

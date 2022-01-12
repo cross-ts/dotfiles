@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+
+instance_id=$1
+
+if [[ -z ${instance_id} ]]; then
+  echo "Usage: aws ssm ssh instance_id" 1>&2
+  exit 1
+fi
+
+az=$(aws ec2 describe-instances \
+  --instance-id ${instance_id} \
+  --query 'Reservations[0].Instances[0].Placement.AvailabilityZone' \
+  --output text
+)
+
+echo "Sending ssh public key" 1>&2
+aws ec2-instance-connect send-ssh-public-key \
+  --instance-id $instance_id \
+  --instance-os-user $user \
+  --availability-zone $az \
+  --ssh-public-key file://$HOME/.ssh/id_rsa.pub
+
+echo "exec ssh $user@$instance_id" 1>&2
+exec ssh $user@$instance_id
