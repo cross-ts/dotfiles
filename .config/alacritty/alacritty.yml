@@ -188,8 +188,8 @@ font:
 colors:
   # Default colors
   primary:
-    background: '0x242424'
-    foreground: '0xeaeaea'
+    background: '#242424'
+    foreground: '#ffffff'
 
     # Bright and dim foreground colors
     #
@@ -282,14 +282,14 @@ colors:
 
   # Normal colors from 765 pro
   normal:
-    black:   '0x515558'
-    red:     '0xe22b30'
-    green:   '0x01a860'
-    yellow:  '0xffe43f'
-    blue:    '0x2743d2'
-    magenta: '0xfd99e1'
-    cyan:    '0x01adb9'
-    white:   '0xd3dde9'
+    black:   '#515558'
+    red:     '#e22b30'
+    green:   '#01a860'
+    yellow:  '#ffe43f'
+    blue:    '#2743d2'
+    magenta: '#fd99e1'
+    cyan:    '#01adb9'
+    white:   '#d3dde9'
 
   # Bright colors
   bright:
