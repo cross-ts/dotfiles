@@ -46,15 +46,9 @@ function now() {
 }
 
 function log() {
-  if [[ $1 = "" ]]; then
-    error "Argument Error: too few argument"
-    error  "Usage: log LOGLEVEL message"
-    return 1
-  fi
-
   case $1 in
     debug|info|notice|warn|error)
-      local label=$1
+      local log_level=$1
       shift
       ;;
     *)
@@ -64,7 +58,7 @@ function log() {
       ;;
   esac
 
-  echo "[$(now)] [${label:u}]: $@"
+  echo "time:$(now)\tlevel:${log_level:u}\tmessage:${@}"
 }
 
 function success() {

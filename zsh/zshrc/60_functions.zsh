@@ -16,9 +16,9 @@ function cdf() {
 }
 
 function colors256() {
-  for c in {000..255}; do
-    echo -n "\e[38;5;${c}m $c"
-    [ $(($c%16)) -eq 15 ] && echo
+  for i in {000..255} ; do
+    printf "\x1b[38;5;${i}m${i} "
+    [ $(($i%16)) -eq 15 ] && echo
   done
   echo
 }
