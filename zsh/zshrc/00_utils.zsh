@@ -42,7 +42,7 @@ function white() {
 
 # logging
 function now() {
-  echo $(date +'%Y/%m/%d %H:%M:%S')
+  echo $(date --rfc-3339 'seconds')
 }
 
 function log() {
