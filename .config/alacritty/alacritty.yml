@@ -280,27 +280,27 @@ colors:
   #  text: CellBackground
   #  background: CellForeground
 
-  # Normal colors from 765 pro
+  # Normal colors Based # 788bc5
   normal:
-    black:   '#515558'
-    red:     '#e22b30'
-    green:   '#01a860'
-    yellow:  '#ffe43f'
-    blue:    '#2743d2'
-    magenta: '#fd99e1'
-    cyan:    '#01adb9'
-    white:   '#d3dde9'
+    black:   '#3a3a3a'
+    red:     '#c5788b'
+    green:   '#8bc578'
+    yellow:  '#c5b278'
+    blue:    '#788bc5'
+    magenta: '#b278c5'
+    cyan:    '#78c5b2'
+    white:   '#c5c5c5'
 
   # Bright colors
   bright:
-    black:   '#666666'
-    red:     '#d54e53'
-    green:   '#b9ca4a'
-    yellow:  '#e7c547'
-    blue:    '#7aa6da'
-    magenta: '#c397d8'
-    cyan:    '#70c0b1'
-    white:   '#eaeaea'
+    black:   '#1d1d1d'
+    red:     '#e24c46'
+    green:   '#46e24c'
+    yellow:  '#dce246'
+    blue:    '#4c46e2'
+    magenta: '#e246dc'
+    cyan:    '#46dce2'
+    white:   '#e2e2e2'
 
   # Dim colors
   #
