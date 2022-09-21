@@ -11,6 +11,10 @@
   command = "brew upgrade; brew cleanup --prune=all -v; brew doctor"
 
 [[snippets]]
+  description = "brew bundle"
+  command = "brew update; brew upgrade --cask --greedy; brew bundle"
+
+[[snippets]]
   description = "ghq"
   command = "ghq list | grep github.com | perl -pe 's/^[^\\/]+\\///' | xargs -n1 -P10 ghq get -u"
 
