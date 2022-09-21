@@ -13,13 +13,10 @@ brew 'ctags'
 brew 'ripgrep'
 
 # git
-brew 'hub'
 brew 'git'
 brew 'git-extras'
 brew 'git-flow'
 brew 'ghq'
-tap 'github/gh'
-brew 'gh'
 
 # update commands
 brew 'rsync'
@@ -37,7 +34,6 @@ brew "ansible"
 brew 'bat'
 brew 'fzf'
 brew 'htop'
-brew 'hugo'
 brew "itchyny/tap/mmv"
 brew 'jid'
 brew 'jq'
@@ -61,5 +57,4 @@ cask 'deepl'
 cask 'docker'
 cask 'google-chrome'
 cask 'iterm2'
-cask 'sequel-ace'
 cask "slack"
