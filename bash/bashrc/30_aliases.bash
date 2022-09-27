@@ -19,8 +19,8 @@ if executable docker; then
   alias hadolint='docker run --rm -i hadolint/hadolint <'
 fi
 
-if executable docker-compose; then
-  alias dc='docker-compose'
+if executable docker; then
+  alias dc='docker compose'
 fi
 
 if executable hub; then
