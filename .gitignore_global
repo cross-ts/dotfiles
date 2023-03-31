@@ -12,3 +12,6 @@ tags
 
 # startuptime.logはGit管理しない
 startuptime.log
+
+# JetBrain製のIDE用のローカルconfigは一旦Git管理しない
+.idea
