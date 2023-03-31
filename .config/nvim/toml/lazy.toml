@@ -151,21 +151,7 @@ hook_post_source = '''
 # Async Language Server Protocol plugin for vim8 and neovim.
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
-on_ft = [
-  'sh', 'bash', # bash
-  'cs',         # C#
-  'dockerfile', # Dockerfile
-  'go',         # Go
-  'html',       # HTML
-  'js',         # JavaScript
-  'php',        # PHP
-  'python',     # Python
-  'ruby',       # Ruby
-  'rust',       # Rust
-  'sql',        # SQL
-  'typescript', # TypeScript
-  'vim',        # Vim
-]
+on_event = ['BufEnter']
 
 # Auto configurations for Language Servers for vim-lsp.
 [[plugins]]
