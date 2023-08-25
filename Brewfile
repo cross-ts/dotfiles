@@ -20,8 +20,8 @@ brew 'ghq'
 
 # update commands
 brew 'rsync'
-brew 'gawk'
-brew 'gnu-sed'
+brew 'gawk' if OS.mac?
+brew 'gnu-sed' if OS.mac?
 brew 'coreutils'
 
 # language version managers
@@ -44,8 +44,8 @@ brew 'tmux'
 brew 'tree'
 
 # AWS
-tap 'aws/tap'
 brew 'awscli'
+brew 'aws-cdk'
 brew 'aws-sam-cli'
 
 # cask
@@ -53,7 +53,6 @@ tap "homebrew/cask"
 cask '1password'
 cask "alacritty"
 cask "discord"
-cask 'deepl'
 cask 'docker'
 cask 'google-chrome'
 cask 'iterm2'
