@@ -9,6 +9,11 @@ hook_post_source = '''
   autocmd VimEnter * ++nested colorscheme lucario
 '''
 
+# Neovim plugin for GitHub Copilot
+[[plugins]]
+repo = 'github/copilot.vim'
+on_event = ['VimEnter']
+
 # A NeoVim colorscheme based 788bc5.
 [[plugins]]
 repo = 'cross-ts/788bc5.nvim'
