@@ -18,4 +18,3 @@ vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })
 
 --- Terminal Mode
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
-vim.api.nvim_set_keymap('t', 'jj', '<C-\\><C-n>', { noremap = true })
