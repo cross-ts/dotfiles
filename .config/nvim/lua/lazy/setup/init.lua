@@ -1,17 +1,20 @@
-require('lazy').setup({
-  -- Neovim plugin for GitHub Copilot
-  {'github/copilot.vim'},
+-- Install lazy.nvim if it doesn't exist
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    'git',
+    'clone',
+    '--filter=blob:none',
+    'https://github.com/folke/lazy.nvim.git',
+    '--branch=stable', -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
 
-  -- The best flat theme for Vim, Atom, Sublime Text, Jetbrains Editors, Terminal.app, iTerm, Xcode, Windows Terminal and XTerm
-  {
-    'raphamorim/lucario',
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      -- load the colorscheme here
-      vim.cmd([[colorscheme lucario]])
-    end,
+local opts = {
+  defaults = {
+    lazy = true,
   },
-
-  -- 💤 A modern plugin manager for Neovim
-  {'folke/lazy.nvim'},
-}) 
+}
+require('lazy').setup('plugin', opts)
