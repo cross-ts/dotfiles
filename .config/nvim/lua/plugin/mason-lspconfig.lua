@@ -6,11 +6,5 @@ return {
     'williamboman/mason.nvim',
     'neovim/nvim-lspconfig',
   },
-  config = function()
-    require('mason_lspconfig').setup_handlers({
-      function(server_name)
-        require('lspconfig')[server_name].setup({})
-      end,
-    })
-  end,
+  config = true,
 }
