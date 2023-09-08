@@ -2,8 +2,12 @@
 return {
   'nvim-lualine/lualine.nvim',
   event = 'VimEnter',
-  config = true,
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
+  opts = {
+    options = {
+      globalstatus = true,
+    }
+  }
 }
