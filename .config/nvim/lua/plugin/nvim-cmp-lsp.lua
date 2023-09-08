@@ -1,7 +1,7 @@
 -- nvim-cmp source for neovim builtin LSP client
 return {
   'hrsh7th/cmp-nvim-lsp',
-  event = {'InsertEnter'},
+  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
     'hrsh7th/nvim-cmp',
     'neovim/nvim-lspconfig',
