@@ -9,7 +9,7 @@ return {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
-    vim.api.nvim_set_keymap('n', '<leader>f', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>d', '<cmd>NvimTreeToggle<CR>', { noremap = true, silent = true })
   end,
   config = function()
     require('nvim-tree').setup({
