@@ -8,10 +8,10 @@ vim.api.nvim_set_keymap('n', '<down>', 'gj', { noremap = true })
 vim.api.nvim_set_keymap('n', 'k', 'gk', { noremap = true })
 vim.api.nvim_set_keymap('n', '<up>', 'gk', { noremap = true })
 
-vim.api.nvim_set_keymap('n', '<C-w>h', 'sh', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-w>j', 'sj', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-w>k', 'sk', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-w>l', 'sl', { noremap = true })
+vim.api.nvim_set_keymap('n', 'sh', '<C-w>h', { noremap = true })
+vim.api.nvim_set_keymap('n', 'sj', '<C-w>j', { noremap = true })
+vim.api.nvim_set_keymap('n', 'sk', '<C-w>k', { noremap = true })
+vim.api.nvim_set_keymap('n', 'sl', '<C-w>l', { noremap = true })
 
 --- Insert Mode
 vim.api.nvim_set_keymap('i', 'jj', '<ESC>', { noremap = true, silent = true })

@@ -17,7 +17,7 @@ return {
         indent_markers = {
           enable = true,
         }
-      }
+      },
     })
 
     -- AutoClose
