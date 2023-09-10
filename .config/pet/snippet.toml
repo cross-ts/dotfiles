@@ -23,13 +23,5 @@
   command = "eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
 
 [[snippets]]
-  description = "dein"
-  command = 'nvim --headless -c "try | call dein#update() | finally | qall! | endtry"'
-
-[[snippets]]
-  description = "dein"
-  command = 'nvim --headless -c "try | call dein#recache_runtimepath() | finally | qall! | endtry"'
-
-[[snippets]]
   description = "submodule"
   command = "git submodule init && git submodule update && git submodule foreach git pull origin master"
