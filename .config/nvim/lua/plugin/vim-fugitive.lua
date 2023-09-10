@@ -3,6 +3,6 @@ return {
   'tpope/vim-fugitive',
   cmd = { 'Git' },
   init = function()
-    vim.api.nvim_set_keymap('n', '<leader>git', ':Git ', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', '<leader>git', ':Git', { noremap = true, silent = true })
   end,
 }
