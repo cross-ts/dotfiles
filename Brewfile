@@ -4,11 +4,11 @@ brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
 # font
-tap 'sanemat/font'
-brew 'ricty'
+tap 'homebrew/cask-fonts'
+brew 'font-Hack-nerd-font'
 
 # for editior
-brew 'neovim'
+brew 'neovim', args: ['HEAD']
 brew 'ctags'
 brew 'ripgrep'
 
@@ -32,6 +32,7 @@ tap "itchyny/tap"
 tap "knqyf263/pet"
 brew "ansible"
 brew 'bat'
+brew 'ctop'
 brew 'fzf'
 brew 'htop'
 brew "itchyny/tap/mmv"

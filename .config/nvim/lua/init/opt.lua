@@ -1,3 +1,6 @@
+-- Colors
+vim.opt.termguicolors = true
+
 -- Indent Settings
 vim.opt.smartindent = true
 vim.opt.autoindent = true
