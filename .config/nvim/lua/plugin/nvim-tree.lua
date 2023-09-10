@@ -4,12 +4,14 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
-  cmd = { 'NvimTreeOpen' },
-  config = function()
+  cmd = { 'NvimTreeOpen', "NvimTreeToggle" },
+  init = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
-    vim.opt.termguicolors = true
 
+    vim.api.nvim_set_keymap('n', '<leader>f', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+  end,
+  config = function()
     require('nvim-tree').setup({
       renderer = {
         indent_markers = {
