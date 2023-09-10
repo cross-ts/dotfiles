@@ -9,3 +9,9 @@ vim.api.nvim_create_autocmd({'TermOpen'}, {
     vim.opt.relativenumber = false
   end,
 })
+vim.api.nvim_create_autocmd({'TermClose'}, {
+  group = group,
+  callback = function()
+    vim.api.nvim_input('<CR>')
+  end,
+})
