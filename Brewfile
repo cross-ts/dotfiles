@@ -12,6 +12,7 @@ brew 'tig'
 
 # editor
 brew 'neovim', args: ['HEAD']
+brew 'neovim-remote'
 
 # AWS
 brew 'awscli'
@@ -31,8 +32,9 @@ tap 'homebrew/cask-fonts'
 cask 'font-Hack-nerd-font'
 
 # Cask
-cask 'alacritty'
-cask 'google-chrome'
 cask '1password'
-cask 'slack'
+cask 'alacritty'
 cask 'discord'
+cask 'docker'
+cask 'google-chrome'
+cask 'slack'

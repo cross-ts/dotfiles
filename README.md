@@ -1,3 +1,12 @@
+     _       _    __ _ _
+    | |     | |  / _(_) |
+  __| | ___ | |_| |_ _| | ___  ___
+ / _` |/ _ \| __|  _| | |/ _ \/ __|
+| (_| | (_) | |_| | | | |  __/\__ \
+ \__,_|\___/ \__|_| |_|_|\___||___/
+
+---
+
 # Install
 
 ```bash
@@ -5,20 +14,5 @@ $ cd $HOME
 $ git clone git@github.com:cross-ts/dotfiles.git
 $ cd dotfiles
 $ bin/deploy
+$ brew bundle
 ```
-
-# Load order of each shell
-## bash
-1. /etc/profile
-2. $HOME/.bash_profile
-3. $HOME/.bashrc
-4. /etc/bashrc
-
-## zsh
-1. /etc/zshenv
-2. \${$ZDOTDIR:-$HOME}/.zshenv
-3. /etc/zprofile
-4. \${$ZDOTDIR:-$HOME}/.zprofile
-5. \${$ZDOTDIR:-$HOME}/.zshrc
-6. /etc/zlogin
-7. \${$ZDOTDIR:-$HOME}/.zlogin
