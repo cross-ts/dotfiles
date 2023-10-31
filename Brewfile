@@ -3,58 +3,35 @@ brew 'zsh'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
 
-# font
-tap 'homebrew/cask-fonts'
-brew 'font-Hack-nerd-font'
-
-# for editior
-brew 'neovim', args: ['HEAD']
-brew 'ctags'
-brew 'ripgrep'
-
 # git
+brew 'gh'
+brew 'ghq'
 brew 'git'
 brew 'git-extras'
-brew 'git-flow'
-brew 'ghq'
-
-# update commands
-brew 'rsync'
-brew 'gawk' if OS.mac?
-brew 'gnu-sed' if OS.mac?
-brew 'coreutils'
-
-# language version managers
-brew 'anyenv'
-
-# command line tools
-tap "itchyny/tap"
-tap "knqyf263/pet"
-brew "ansible"
-brew 'bat'
-brew 'ctop'
-brew 'fzf'
-brew 'htop'
-brew "itchyny/tap/mmv"
-brew 'jid'
-brew 'jq'
-brew 'knqyf263/pet/pet'
-brew 'percona-toolkit'
 brew 'tig'
-brew 'tmux'
-brew 'tree'
+
+# editor
+brew 'neovim', args: ['HEAD']
 
 # AWS
 brew 'awscli'
-brew 'aws-cdk'
-brew 'aws-sam-cli'
 
-# cask
-tap "homebrew/cask"
-cask '1password'
-cask "alacritty"
-cask "discord"
-cask 'docker'
+# Launguage Manager
+brew 'anyenv'
+
+# CLI tols
+brew 'fzf'
+brew 'pet'
+brew 'ripgrep'
+brew 'tmux'
+
+# Font
+tap 'homebrew/cask-fonts'
+cask 'font-Hack-nerd-font'
+
+# Cask
+cask 'alacritty'
 cask 'google-chrome'
-cask 'iterm2'
-cask "slack"
+cask '1password'
+cask 'slack'
+cask 'discord'
