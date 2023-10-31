@@ -13,3 +13,6 @@ tmp/*
 
 zsh/.zcompdump
 zsh/.zshrc.zwc
+
+# brew bundle用のlockファイルを管理すると別PCでちょっと面倒なので管理しない
+Brewfile.lock.json

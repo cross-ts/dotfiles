@@ -20,6 +20,7 @@ brew 'awscli'
 brew 'anyenv'
 
 # CLI tols
+brew 'bat'
 brew 'fzf'
 brew 'pet'
 brew 'ripgrep'
