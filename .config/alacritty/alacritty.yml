@@ -909,3 +909,7 @@ font:
 
   # Highlight window damage information.
   #highlight_damage: false
+
+# Use my colorscheme
+import:
+ - ~/.config/alacritty/themes/788bc5.yml
