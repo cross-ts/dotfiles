@@ -21,8 +21,10 @@ brew 'awscli'
 brew 'anyenv'
 
 # CLI tols
+brew 'ansible'
 brew 'bat'
 brew 'fzf'
+brew 'jq'
 brew 'pet'
 brew 'ripgrep'
 brew 'tmux'
