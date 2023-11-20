@@ -28,6 +28,7 @@ brew 'jq'
 brew 'pet'
 brew 'ripgrep'
 brew 'tmux'
+brew 'universal-ctags'
 
 # Font
 tap 'homebrew/cask-fonts'
