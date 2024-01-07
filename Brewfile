@@ -2,6 +2,7 @@
 brew 'zsh'
 brew 'zsh-completions'
 brew 'zsh-syntax-highlighting'
+brew 'sheldon'
 
 # git
 brew 'gh'
