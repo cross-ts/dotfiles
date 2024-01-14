@@ -13,5 +13,8 @@ function log.info() {
 }
 
 function log.debug() {
+  if [[ ${DOTFILES_DEBUG} != "on" ]]; then
+    return
+  fi
   echo "\e[0;97;100m[DEBUG]\e[0m ${@}"
 }

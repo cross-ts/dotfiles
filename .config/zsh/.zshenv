@@ -10,3 +10,6 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 # Z Shell
 #export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZDOTDIR="${HOME}/dotfiles/.config/zsh"
+
+# My dotfiles
+export DOTFILES_DEBUG=on
