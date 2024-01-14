@@ -26,3 +26,5 @@ function brew() {
     *) command brew ${@} ;;
   esac
 }
+
+export HOMEBREW_BUNDLE_FILE="${XDG_CONFIG_HOME}/homebrew/bundle"

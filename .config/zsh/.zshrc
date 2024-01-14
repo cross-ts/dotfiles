@@ -17,3 +17,7 @@ brew require sheldon || return 1
 brew require fzf || return 1
 brew require git || return 1
 eval "$(sheldon source)"
+
+### Z shell
+mkdir -p "${XDG_CONFIG_HOME}/zsh"
+export HISTFILE="${XDG_STATE_HOME}/zsh/history"
