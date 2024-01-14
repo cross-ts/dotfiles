@@ -1,8 +1,11 @@
 # shell
 brew 'zsh'
-brew 'zsh-completions'
-brew 'zsh-syntax-highlighting'
+
+# My .zshrc Dependencies
 brew 'sheldon'
+brew 'fzf'
+brew 'ripgrep'
+brew 'eza'
 
 # git
 brew 'gh'
@@ -24,10 +27,8 @@ brew 'anyenv'
 # CLI tols
 brew 'ansible'
 brew 'bat'
-brew 'fzf'
 brew 'jq'
 brew 'pet'
-brew 'ripgrep'
 brew 'tmux'
 brew 'universal-ctags'
 

@@ -1,2 +1,5 @@
+# git abbr
 abbr "gp"="git push"
-abbr "ll"="ls -lahG --color=auto"
+
+# ls abbr
+abbr "ll"="eza -lah"
