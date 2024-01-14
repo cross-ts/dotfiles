@@ -6,11 +6,11 @@ brew 'sheldon'
 brew 'fzf'
 brew 'ripgrep'
 brew 'eza'
+brew 'git'
 
 # git
 brew 'gh'
 brew 'ghq'
-brew 'git'
 brew 'git-extras'
 brew 'tig'
 
