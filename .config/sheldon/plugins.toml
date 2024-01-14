@@ -53,3 +53,7 @@ use = ["etc/bash_completion.d/git-prompt.sh"]
 pre = """
   brew_require git || return 1
 """
+post = """
+  GIT_PS1_SHOWUPSTREAM=1
+  GIT_PS1_SHOWDIRTYSTATE=1
+"""

@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-#zmodload zsh/zprof
-
 # TODO: Use autoload instead of sourcing
 source ${ZDOTDIR}/zshrc/logging.zsh
 
@@ -36,4 +34,3 @@ brew_require sheldon || return 1
 eval "$(sheldon source)"
 
 unset -f brew_require
-#zprof
