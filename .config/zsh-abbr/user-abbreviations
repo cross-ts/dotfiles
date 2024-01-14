@@ -1,5 +1,11 @@
-# git abbr
+abbr "d"="docker"
+abbr "dc"="docker compose"
 abbr "gp"="git push"
-
-# ls abbr
+abbr "gs"="git status"
+abbr "hadolint"="docker run --rm -i hadolint/hadolint <"
 abbr "ll"="eza -lah"
+abbr "t"="tmux"
+abbr "ta"="tmux attach -t"
+abbr "tn"="tmux new -s"
+abbr "v"="nvim"
+abbr "vi"="nvim"

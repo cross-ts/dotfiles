@@ -6,7 +6,7 @@ if [ ! -e "${HOME}/.config" ]; then
   mkdir ${HOME}/.config
 fi
 
-for filename in .??* .config/*; do
+for filename in .config/*; do
   test $filename = '.git'        && continue
   test $filename = '.gitignore'  && continue
   test $filename = '.gitmodules' && continue
@@ -14,6 +14,8 @@ for filename in .??* .config/*; do
   test $filename = '.DS_Store'   && continue
   ln -fsnv "${DOTPATH}/${filename}" "${HOME}/${filename}"
 done
+
+ln -fsnv "${DOTPATH}/.config/zsh/.zshenv" "${HOME}/.zshenv"
 
 if [ ! -e "${HOME}/.gituser" ]; then
   read -p "name  = " name
