@@ -1,0 +1,25 @@
+import = ["/Users/cross_ts/.config/alacritty/themes/788bc5.toml"]
+
+[env]
+TERM = "alacritty"
+
+[font]
+size = 14.0
+
+[font.bold]
+family = "Hack Nerd font"
+
+[font.bold_italic]
+family = "Hack Nerd font"
+
+[font.italic]
+family = "Hack Nerd font"
+
+[font.normal]
+family = "Hack Nerd font"
+
+[scrolling]
+history = 10000
+
+[window]
+startup_mode = "Maximized"
