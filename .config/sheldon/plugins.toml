@@ -31,7 +31,10 @@ post = """
 """
 
 # Plugins installed using Homebrew
-# XXX: Use brew --prefix to /opt/homebrew
+# NOTE:
+# * 以下のコマンドはHomebrewで導入したものを使用する
+# * 通常時も使用するコマンドのため参照先を一つにしたい
+# FIXME: /opt/homebrew/optを参照したくないのでなんかいい感じにしたい
 [plugins.fzf]
 local = "/opt/homebrew/opt/fzf"
 use = ["shell/key-bindings.zsh"]
