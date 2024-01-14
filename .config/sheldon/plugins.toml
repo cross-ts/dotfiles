@@ -24,7 +24,7 @@ use = ["zsh-abbr.plugin.zsh"]
 
 [plugins."olets/zsh-abbr".hooks]
 pre = """
-  brew_require eza || return 1
+  brew require eza || return 1
 """
 post = """
   abbr load -f
@@ -38,10 +38,10 @@ use = ["shell/key-bindings.zsh"]
 
 [plugins.fzf.hooks]
 pre = """
-  brew_require fzf || return 1
+  brew require fzf || return 1
 """
 post = """
-  brew_require rg ripgrep || return 1
+  brew require rg ripgrep || return 1
   FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
 """
 
@@ -51,7 +51,7 @@ use = ["etc/bash_completion.d/git-prompt.sh"]
 
 [plugins.git.hooks]
 pre = """
-  brew_require git || return 1
+  brew require git || return 1
 """
 post = """
   GIT_PS1_SHOWUPSTREAM=1

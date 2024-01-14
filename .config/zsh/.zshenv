@@ -1,5 +1,9 @@
 #!/usr/bin/env zsh
 
+# My dotfiles
+export DOTFILES="${HOME}/dotfiles"
+export DOTFILES_DEBUG=on
+
 # XDG Base Directory Specification
 # See: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 export XDG_CONFIG_HOME="${HOME}/.config"
@@ -9,7 +13,4 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 
 # Z Shell
 #export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
-export ZDOTDIR="${HOME}/dotfiles/.config/zsh"
-
-# My dotfiles
-export DOTFILES_DEBUG=on
+export ZDOTDIR="${DOTFILES}/.config/zsh"

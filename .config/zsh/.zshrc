@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
-# TODO: Use autoload instead of sourcing
+# TODO: この辺なんとかしたい
 source ${ZDOTDIR}/zshrc/logging.zsh
+source ${ZDOTDIR}/zshrc/brew.zsh
 
 # Depends on: Homebrew
 if ! type brew >/dev/null 2>&1; then
@@ -9,28 +10,6 @@ if ! type brew >/dev/null 2>&1; then
   return 1
 fi
 
-function brew_require() {
-  local command=$1
-  local formula=${2:-$command}
-
-  # Check if command is already installed
-  if type ${command} >/dev/null 2>&1; then
-    log.debug "${command} is installed"
-    return 0
-  fi
-
-  # Install command using Homebrew
-  log.info "${command} is not installed"
-  log.info "Installing ${formula} using Homebrew..."
-  brew install ${formula} &>/dev/null || {
-    log.error "Failed to install ${formula}"
-    return 1
-  }
-  log.info "${command} is installed"
-}
-
 # Depends on: sheldon
-brew_require sheldon || return 1
+brew require sheldon || return 1
 eval "$(sheldon source)"
-
-unset -f brew_require
