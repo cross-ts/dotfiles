@@ -37,9 +37,6 @@ local = "/opt/homebrew/opt/fzf"
 use = ["shell/key-bindings.zsh"]
 
 [plugins.fzf.hooks]
-pre = """
-  brew require fzf || return 1
-"""
 post = """
   brew require rg ripgrep || return 1
   FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
@@ -50,9 +47,6 @@ local = "/opt/homebrew/opt/git"
 use = ["etc/bash_completion.d/git-prompt.sh"]
 
 [plugins.git.hooks]
-pre = """
-  brew require git || return 1
-"""
 post = """
   GIT_PS1_SHOWUPSTREAM=1
   GIT_PS1_SHOWDIRTYSTATE=1

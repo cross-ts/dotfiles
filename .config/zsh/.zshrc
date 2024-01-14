@@ -12,4 +12,6 @@ fi
 
 # Depends on: sheldon
 brew require sheldon || return 1
+brew require fzf || return 1
+brew require git || return 1
 eval "$(sheldon source)"
