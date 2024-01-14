@@ -2,7 +2,7 @@
 
 # My dotfiles
 export DOTFILES="${HOME}/dotfiles"
-export DOTFILES_DEBUG=on
+export DOTFILES_DEBUG=off
 
 # XDG Base Directory Specification
 # See: https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
