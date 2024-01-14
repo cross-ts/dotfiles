@@ -1,0 +1,2 @@
+abbr "gp"="git push"
+abbr "ll"="ls -lahG --color=auto"
