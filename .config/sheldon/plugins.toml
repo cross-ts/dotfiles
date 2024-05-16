@@ -54,3 +54,7 @@ post = """
   GIT_PS1_SHOWUPSTREAM=1
   GIT_PS1_SHOWDIRTYSTATE=1
 """
+
+[plugins.asdf]
+local = "/opt/homebrew/opt/asdf"
+use = ["libexec/asdf.sh"]

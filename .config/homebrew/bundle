@@ -22,7 +22,7 @@ brew 'neovim-remote'
 brew 'awscli'
 
 # Launguage Manager
-brew 'anyenv'
+brew 'asdf'
 
 # CLI tols
 brew 'ansible'
