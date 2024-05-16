@@ -21,9 +21,6 @@ brew 'neovim-remote'
 # AWS
 brew 'awscli'
 
-# Launguage Manager
-brew 'asdf'
-
 # CLI tols
 brew 'ansible'
 brew 'bat'
