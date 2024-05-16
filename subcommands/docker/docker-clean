@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-command docker system prune -af --volumes

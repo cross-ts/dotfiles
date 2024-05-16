@@ -2,21 +2,49 @@ shell = "zsh"
 
 [plugins]
 
-[plugins."zsh-users/zsh-syntax-highlighting"]
-github = "zsh-users/zsh-syntax-highlighting"
+[plugins.asdf]
+github = "asdf-vm/asdf"
+use = ["asdf.sh"]
 
-[plugins."zsh-users/zsh-syntax-highlighting".hooks]
+[plugins.asdf.hooks]
+pre = """
+  export ASDF_DIR="${XDG_DATA_HOME}/sheldon/repos/github.com/asdf-vm/asdf"
+  export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
+"""
 post = """
-  ZSH_HIGHLIGHT_STYLES[path]='none'
-  ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan,bold'
-  ZSH_HIGHLIGHT_STYLES[arg0]='fg=cyan,bold'
+  export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/.asdfrc"
+  export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
 """
 
-[plugins."zsh-users/zsh-completions"]
-github = "zsh-users/zsh-completions"
+[plugins.docker-sh]
+inline = """
+function docker-sh() {
+  shell=${1:-sh}
+  container_id=$(command docker container ls | perl -alne 'print unless $. == 1' | fzf --ansi --height 40% | perl -alne 'print $F[0]')
+  if [[ ! -n $container_id ]]; then
+    return 1
+  fi
+  command docker exec -it ${container_id} $shell
+}
+"""
 
-[plugins."zsh-users/zsh-autosuggestions"]
-github = "zsh-users/zsh-autosuggestions"
+[plugins.fzf]
+remote = "https://github.com/junegunn/fzf/raw/master/shell/key-bindings.zsh"
+
+[plugins.fzf.hooks]
+post = """
+  brew require rg ripgrep || return 1
+  FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
+"""
+
+[plugins.git-prompt]
+remote = "https://github.com/git/git/raw/master/contrib/completion/git-prompt.sh"
+
+[plugins.git-prompt.hooks]
+post = """
+  GIT_PS1_SHOWUPSTREAM=1
+  GIT_PS1_SHOWDIRTYSTATE=1
+"""
 
 [plugins."olets/zsh-abbr"]
 github = "olets/zsh-abbr"
@@ -30,38 +58,18 @@ post = """
   abbr load -f
 """
 
-# Plugins installed using Homebrew
-# NOTE:
-# * 以下のコマンドはHomebrewで導入したものを使用する
-# * 通常時も使用するコマンドのため参照先を一つにしたい
-# FIXME: /opt/homebrew/optを参照したくないのでなんかいい感じにしたい
-[plugins.fzf]
-local = "/opt/homebrew/opt/fzf"
-use = ["shell/key-bindings.zsh"]
+[plugins."zsh-users/zsh-autosuggestions"]
+github = "zsh-users/zsh-autosuggestions"
 
-[plugins.fzf.hooks]
+[plugins."zsh-users/zsh-completions"]
+github = "zsh-users/zsh-completions"
+
+[plugins."zsh-users/zsh-syntax-highlighting"]
+github = "zsh-users/zsh-syntax-highlighting"
+
+[plugins."zsh-users/zsh-syntax-highlighting".hooks]
 post = """
-  brew require rg ripgrep || return 1
-  FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
-"""
-
-[plugins.git]
-local = "/opt/homebrew/opt/git"
-use = ["etc/bash_completion.d/git-prompt.sh"]
-
-[plugins.git.hooks]
-post = """
-  GIT_PS1_SHOWUPSTREAM=1
-  GIT_PS1_SHOWDIRTYSTATE=1
-"""
-
-[plugins.asdf]
-github = "asdf-vm/asdf"
-use = ["asdf.sh"]
-
-[plugins.asdf.hooks]
-post = """
-  export ASDF_CONFIG_FILE="${XDG_CONFIG_HOME}/asdf/.asdfrc"
-  export ASDF_DEFAULT_TOOL_VERSIONS_FILENAME=".config/asdf/.tool-versions"
-  export ASDF_DATA_DIR="${XDG_DATA_HOME}/asdf"
+  ZSH_HIGHLIGHT_STYLES[path]='none'
+  ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan,bold'
+  ZSH_HIGHLIGHT_STYLES[arg0]='fg=cyan,bold'
 """

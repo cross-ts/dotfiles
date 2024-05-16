@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-command aws sts get-caller-identity --query 'Account' --output text

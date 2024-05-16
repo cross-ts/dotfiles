@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-case $1 in
-  id) aws-account-id ;;
-  *) aws-account-usage ;;
-esac
