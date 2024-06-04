@@ -34,7 +34,7 @@ remote = "https://github.com/junegunn/fzf/raw/master/shell/key-bindings.zsh"
 [plugins.fzf.hooks]
 post = """
   brew require rg ripgrep || return 1
-  FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
+  export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
 """
 
 [plugins.git-prompt]
@@ -42,8 +42,15 @@ remote = "https://github.com/git/git/raw/master/contrib/completion/git-prompt.sh
 
 [plugins.git-prompt.hooks]
 post = """
-  GIT_PS1_SHOWUPSTREAM=1
-  GIT_PS1_SHOWDIRTYSTATE=1
+  export GIT_PS1_SHOWUPSTREAM=1
+  export GIT_PS1_SHOWDIRTYSTATE=1
+
+  setopt prompt_subst
+  readonly local __time='%{$fg[green]%}[%*]%{${reset_color}%}'
+  readonly local __dirname='%{$fg[red]%}%c%{${reset_color}%}'
+  readonly local __gitbranch='%{$fg[yellow]%}$(__git_ps1 "(%s) ")%{${reset_color}%}'
+  readonly local __prompt='%{$fg[cyan]%}❭%{${reset_color}%}'
+  PROMPT="${__time} ${__dirname} ${__gitbranch}\n${__prompt} "
 """
 
 [plugins."olets/zsh-abbr"]

@@ -1,8 +1,0 @@
-#!/bin/sh
-
-cat <<-RES
-======================================
-    name : $(git config user.name)
-   email : $(git config user.email)
-======================================
-RES
