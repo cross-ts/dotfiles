@@ -4,7 +4,6 @@ return {
   cmd = { 'LspInstall', 'LspUninstall' },
   dependencies = {
     'williamboman/mason.nvim',
-    'neovim/nvim-lspconfig',
   },
   config = true,
 }
