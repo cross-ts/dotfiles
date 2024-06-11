@@ -3,7 +3,7 @@ return {
   'mhinz/neovim-remote',
   event = 'TermOpen',
   build = function()
-    -- execute pip install neovim-remote
+    vim.fn.system('brew require neovim-remote')
   end,
   init = function()
     vim.env.GIT_EDITOR = 'nvr --remote-wait'
