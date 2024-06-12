@@ -59,7 +59,7 @@ use = ["zsh-abbr.plugin.zsh"]
 
 [plugins."olets/zsh-abbr".hooks]
 pre = """
-　　export ABBR_AUTO_LOAD=1
+  export ABBR_AUTO_LOAD=1
 """
 post = """
   brew require eza || return 1
