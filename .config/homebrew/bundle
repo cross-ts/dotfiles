@@ -25,7 +25,7 @@ brew 'awscli'
 brew 'ansible'
 brew 'bat'
 brew 'jq'
-brew 'pet'
+brew 'knqyf263/pet/pet'
 brew 'tmux'
 brew 'universal-ctags'
 
