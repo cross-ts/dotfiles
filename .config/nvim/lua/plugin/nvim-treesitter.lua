@@ -11,6 +11,7 @@ return {
         'php',
         'python',
         'ruby',
+        'terraform',
       },
     })
   end
