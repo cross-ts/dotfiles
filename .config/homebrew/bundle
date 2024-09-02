@@ -29,10 +29,33 @@ brew 'terraform'
 
 # CLI tools
 brew 'bat'
+brew 'coreutils' if OS.mac?
 brew 'jq'
 brew 'knqyf263/pet/pet'
 brew 'tmux'
 brew 'universal-ctags'
+
+# For Build PHP (asdf)
+brew 'autoconf' if OS.mac?
+brew 'automake' if OS.mac?
+brew 'bison' if OS.mac?
+brew 'freetype' if OS.mac?
+brew 'gd' if OS.mac?
+brew 'gettext' if OS.mac?
+brew 'icu4c' if OS.mac?
+brew 'krb5' if OS.mac?
+brew 'libedit' if OS.mac?
+brew 'libiconv' if OS.mac?
+brew 'libjpeg' if OS.mac?
+brew 'libpng' if OS.mac?
+brew 'libxml2' if OS.mac?
+brew 'libzip' if OS.mac?
+brew 'pkg-config' if OS.mac?
+brew 're2c' if OS.mac?
+brew 'zlib' if OS.mac?
+brew 'gmp' if OS.mac?
+brew 'libsodium' if OS.mac?
+brew 'imagemagick' if OS.mac?
 
 # Font
 tap 'homebrew/cask-fonts'
@@ -45,3 +68,6 @@ cask 'discord'
 cask 'docker'
 cask 'google-chrome'
 cask 'slack'
+
+# Mas
+mas 'xcode', id: 497799835 if OS.mac?
