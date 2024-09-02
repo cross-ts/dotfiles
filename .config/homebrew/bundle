@@ -15,14 +15,19 @@ brew 'git-extras'
 brew 'tig'
 
 # editor
-brew 'neovim', args: ['HEAD']
+brew 'neovim'
 brew 'neovim-remote'
 
 # AWS
 brew 'awscli'
+brew 'aws-sam-cli'
+brew 'aws2-wrap'
 
-# CLI tols
+# IaC tools
 brew 'ansible'
+brew 'terraform'
+
+# CLI tools
 brew 'bat'
 brew 'jq'
 brew 'knqyf263/pet/pet'
