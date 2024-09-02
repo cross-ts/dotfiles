@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+autoload -Uz compinit && compinit -C
+
 # Z shell
 mkdir -p "${XDG_STATE_HOME}/zsh"
 export HISTFILE="${XDG_STATE_HOME}/zsh/history"
