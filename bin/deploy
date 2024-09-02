@@ -1,20 +1,16 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
+set -eux -o pipefail
 
 DOTPATH="${HOME}/dotfiles"
-
-if [ ! -e "${HOME}/.config" ]; then
-  mkdir ${HOME}/.config
+XDG_CONFIG_HOME="${HOME}/.config"
+if [ ! -e "${XDG_CONFIG_HOME}" ]; then
+  mkdir -p "${XDG_CONFIG_HOME}"
 fi
 
 for filename in .config/*; do
-  test $filename = '.git'        && continue
-  test $filename = '.gitignore'  && continue
-  test $filename = '.gitmodules' && continue
-  test $filename = '.config'     && continue
-  test $filename = '.DS_Store'   && continue
   ln -fsnv "${DOTPATH}/${filename}" "${HOME}/${filename}"
 done
-
 ln -fsnv "${DOTPATH}/.config/zsh/.zshenv" "${HOME}/.zshenv"
 
 if [ ! -e "${HOME}/.gituser" ]; then
@@ -25,7 +21,4 @@ if [ ! -e "${HOME}/.gituser" ]; then
   name = ${name}
   email = ${email}
 GITUSER
-  unset name email
 fi
-
-unset filename
