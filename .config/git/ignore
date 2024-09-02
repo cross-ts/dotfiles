@@ -1,11 +1,13 @@
-# Mac で作成される.DS_Store
+# MacOS
 .DS_Store
 
-# backupファイル
+# Editor
+## vim
 *~
 ~*
 *.swp
 *.swo
-
-# :Ctags で作成されたタグファイルはGit管理しない
 tags
+
+## IntelliJ IDEA
+.idea/
