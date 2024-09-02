@@ -1,6 +1,6 @@
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
-  pattern = "*.neon",
+  pattern = "*.stub",
   callback = function()
-    vim.bo.filetype = "yaml"
+    vim.bo.filetype = "php"
   end,
 })
