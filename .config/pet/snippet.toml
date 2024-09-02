@@ -1,31 +1,7 @@
 [[snippets]]
-  description = "benchmark"
-  command = "for i in $(seq 1 10); do time zsh -i -c exit; done"
+tag = ["ssh"]
+command = "eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
 
 [[snippets]]
-  description = "benchmark"
-  command = "for i in $(seq 1 10); do time nvim --headless -c 'qall!' --startuptime bench; done"
-
-[[snippets]]
-  description = "brew"
-  command = "brew upgrade; brew cleanup --prune=all -v; brew doctor"
-
-[[snippets]]
-  description = "brew bundle"
-  command = "brew update; brew upgrade --cask --greedy; brew bundle"
-
-[[snippets]]
-  description = "ghq"
-  command = "ghq list | grep github.com | perl -pe 's/^[^\\/]+\\///' | xargs -n1 -P10 ghq get -u"
-
-[[snippets]]
-  description = "ssh"
-  command = "eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
-
-[[snippets]]
-  description = "submodule"
-  command = "git submodule init && git submodule update && git submodule foreach git pull origin master"
-
-[[snippets]]
-description = "sheldon"
+tag = ["sheldon"]
 command = "sheldon lock --update"
