@@ -2,6 +2,8 @@
   snippetfile = "${HOME}/.config/pet/snippet.toml"
   editor = "nvim"
   column = 40
-  selectcmd = "fzf --height ${FZF_TMUX_HEIGHT:-40%}"
+  selectcmd = "fzf --ansi --height ${FZF_TMUX_HEIGHT:-40%}"
   backend = "gist"
   sortby = "description"
+  format = "[$tags] $command"
+  color = true
