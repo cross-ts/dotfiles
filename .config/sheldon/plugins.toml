@@ -88,7 +88,7 @@ use = ["_pet_select"]
 
 [plugins.pet.hooks]
 post = """
-  brew require pet || return 1
+  brew require pet knqyf263/pet/pet || return 1
   zle -N _pet_select
   bindkey '^p' _pet_select
 """
