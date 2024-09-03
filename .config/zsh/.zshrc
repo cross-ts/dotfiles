@@ -28,22 +28,6 @@ fi
 brew require sheldon || return 1
 eval "$(sheldon source)"
 
-# ghq
-mkdir -p "${HOME}/repos"
-function _fzf_ghq_look() {
-  local selected=$(ghq list | fzf --ansi --height 40%)
-  local ret=$?
-  if [ -n "$selected" ]; then
-    cd "$(ghq root)/${selected}"
-    zle accept-line
-  else
-    zle reset-prompt
-  fi
-  return $ret
-}
-zle     -N   _fzf_ghq_look
-bindkey '^G' _fzf_ghq_look
-
 # pet
 function _pet_select() {
   BUFFER=$(pet search --query "$LBUFFER")

@@ -1,5 +1,8 @@
 shell = "zsh"
 
+[templates]
+fpath = 'fpath=( "{{ dir }}" $fpath )'
+
 [plugins]
 
 [plugins.asdf]
@@ -35,6 +38,20 @@ remote = "https://github.com/junegunn/fzf/raw/master/shell/key-bindings.zsh"
 post = """
   brew require rg ripgrep || return 1
   export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
+"""
+
+[plugins.ghq]
+local = "~/dotfiles/.config/zsh/zle"
+use = ["_fzf_ghq_lookup"]
+
+[plugins.ghq.hooks]
+pre = """
+  mkdir -p "${HOME}/repos"
+"""
+post = """
+  brew require ghq || return 1
+  zle -N _fzf_ghq_lookup
+  bindkey '^G' _fzf_ghq_lookup
 """
 
 [plugins.git-prompt]
