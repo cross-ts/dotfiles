@@ -14,15 +14,15 @@ setopt hist_reduce_blanks
 setopt EXTENDED_HISTORY
 setopt transient_rprompt
 
-# TODO: この辺なんとかしたい
-source ${ZDOTDIR}/zshrc/logging.zsh
-source ${ZDOTDIR}/zshrc/brew.zsh
-
 # Depends on: Homebrew
 if ! type brew >/dev/null 2>&1; then
   log.error "Homebrew is not installed"
   return 1
 fi
+
+# TODO: この辺なんとかしたい
+source ${ZDOTDIR}/zshrc/logging.zsh
+source ${ZDOTDIR}/zshrc/brew.zsh
 
 # Depends on: sheldon
 brew require sheldon || return 1
