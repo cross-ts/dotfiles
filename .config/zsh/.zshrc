@@ -28,16 +28,6 @@ fi
 brew require sheldon || return 1
 eval "$(sheldon source)"
 
-# pet
-function _pet_select() {
-  BUFFER=$(pet search --query "$LBUFFER")
-  CURSOR=$#BUFFER
-  zle redisplay
-}
-zle -N _pet_select
-bindkey '^p' _pet_select
-
 # Ctrl-s, Ctrl-q等をshellに食われないようにする
 stty -ixon
-
 typeset -U PATH

@@ -82,6 +82,17 @@ post = """
   brew require eza || return 1
 """
 
+[plugins.pet]
+local = "~/dotfiles/.config/zsh/zle"
+use = ["_pet_select"]
+
+[plugins.pet.hooks]
+post = """
+  brew require pet || return 1
+  zle -N _pet_select
+  bindkey '^p' _pet_select
+"""
+
 [plugins."zsh-users/zsh-autosuggestions"]
 github = "zsh-users/zsh-autosuggestions"
 
