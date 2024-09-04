@@ -8,7 +8,7 @@ command = "sheldon lock --update"
 
 [[snippets]]
 tag = ["ai", "copilot", "suggest"]
-command = 'gh copilot suggest -t shell "<prompt>" -s /dev/stdout'
+command = 'gh copilot suggest "<prompt>" -t "<target=shell>"'
 
 [[snippets]]
 tag = ["ai", "copilot", "explain"]

@@ -53,6 +53,15 @@ post = """
   bindkey '^G' _fzf_ghq_lookup
 """
 
+[plugins.gh-copilot-suggest]
+local = "~/dotfiles/.config/zsh/zle"
+use = ["_gh_copilot_suggest"]
+
+[plugins.gh-copilot-suggest.hooks]
+post = """
+  bindkey '^s' _gh_copilot_suggest
+"""
+
 [plugins.git-prompt]
 remote = "https://github.com/git/git/raw/master/contrib/completion/git-prompt.sh"
 
