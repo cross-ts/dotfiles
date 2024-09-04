@@ -1,13 +1,16 @@
 shell = "zsh"
 
 [templates]
-fpath = 'fpath=( "{{ dir }}" $fpath )'
+defer = "{{ hooks?.pre | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks?.post | nl }}"
 
 [plugins]
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
 
 [plugins.asdf]
 github = "asdf-vm/asdf"
 use = ["asdf.sh"]
+apply = ["defer"]
 
 [plugins.asdf.hooks]
 pre = """
@@ -33,6 +36,7 @@ function docker-sh() {
 
 [plugins.fzf]
 remote = "https://github.com/junegunn/fzf/raw/master/shell/key-bindings.zsh"
+apply = ["defer"]
 
 [plugins.fzf.hooks]
 post = """
@@ -43,6 +47,7 @@ post = """
 [plugins.ghq]
 local = "~/dotfiles/.config/zsh/zle"
 use = ["_fzf_ghq_lookup"]
+apply = ["defer"]
 
 [plugins.ghq.hooks]
 pre = """
@@ -56,6 +61,7 @@ post = """
 [plugins.gh-copilot-suggest]
 local = "~/dotfiles/.config/zsh/zle"
 use = ["_gh_copilot_suggest"]
+apply = ["defer"]
 
 [plugins.gh-copilot-suggest.hooks]
 pre = """
@@ -86,6 +92,7 @@ post = """
 [plugins."olets/zsh-abbr"]
 github = "olets/zsh-abbr"
 use = ["zsh-abbr.plugin.zsh"]
+apply = ["defer"]
 
 [plugins."olets/zsh-abbr".hooks]
 pre = """
@@ -98,6 +105,7 @@ post = """
 [plugins.pet]
 local = "~/dotfiles/.config/zsh/zle"
 use = ["_pet_select"]
+apply = ["defer"]
 
 [plugins.pet.hooks]
 pre = """
@@ -109,15 +117,19 @@ post = """
 
 [plugins."zsh-users/zsh-autosuggestions"]
 github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
 
 [plugins."zsh-users/zsh-completions"]
 github = "zsh-users/zsh-completions"
+apply = ["defer"]
 
 [plugins."zsh-users/zsh-syntax-highlighting"]
 github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
 
 [plugins."zsh-users/zsh-syntax-highlighting".hooks]
 post = """
+  typeset -gA ZSH_HIGHLIGHT_STYLES
   ZSH_HIGHLIGHT_STYLES[path]='none'
   ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan,bold'
   ZSH_HIGHLIGHT_STYLES[arg0]='fg=cyan,bold'
