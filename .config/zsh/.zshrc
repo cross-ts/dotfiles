@@ -6,6 +6,9 @@ autoload -Uz compinit && compinit -C
 
 # Cache directory for zsh
 mkdir -p "${ZCACHEDIR}"
+function cache.clear() {
+  rm -rf "${ZCACHEDIR}"
+}
 
 # Z shell
 mkdir -p "${XDG_STATE_HOME}/zsh"
