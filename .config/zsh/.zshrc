@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 if [[ ${DOTFILES_DEBUG} == "on" ]]; then
-  zmodload zsh/zprof
+  zmodload zsh/zprof && zprof
 fi
 autoload -Uz compinit && compinit -C
 
@@ -48,6 +48,7 @@ elif [[ "${XDG_CONFIG_HOME}/sheldon/plugins.toml" -nt "${SHELDON_CACHE}" ]]; the
   log.info "Cache updated"
 fi
 source "${SHELDON_CACHE}"
+unset SHELDON_CACHE
 
 # Ctrl-s, Ctrl-q等をshellに食われないようにする
 stty -ixon
