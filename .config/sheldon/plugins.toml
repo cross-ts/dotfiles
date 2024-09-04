@@ -58,6 +58,11 @@ local = "~/dotfiles/.config/zsh/zle"
 use = ["_gh_copilot_suggest"]
 
 [plugins.gh-copilot-suggest.hooks]
+pre = """
+  if [[ ! -d "${XDG_DATA_HOME}/gh/extensions/gh-copilot" ]]; then
+    gh extension install github/gh-copilot &> /dev/null
+  fi
+"""
 post = """
   bindkey '^s' _gh_copilot_suggest
 """
