@@ -10,3 +10,5 @@ function _fzf_ghq_lookup() {
   fi
   return $ret
 }
+
+zle -N _fzf_ghq_lookup

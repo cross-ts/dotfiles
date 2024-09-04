@@ -5,3 +5,11 @@ command = "eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
 [[snippets]]
 tag = ["sheldon"]
 command = "sheldon lock --update"
+
+[[snippets]]
+tag = ["ai", "copilot", "suggest"]
+command = 'gh copilot suggest -t shell "<prompt>" -s /dev/stdout'
+
+[[snippets]]
+tag = ["ai", "copilot", "explain"]
+command = 'gh copilot explain "<prompt>"'

@@ -46,11 +46,10 @@ use = ["_fzf_ghq_lookup"]
 
 [plugins.ghq.hooks]
 pre = """
+  brew require ghq || return 1
   mkdir -p "${HOME}/repos"
 """
 post = """
-  brew require ghq || return 1
-  zle -N _fzf_ghq_lookup
   bindkey '^G' _fzf_ghq_lookup
 """
 
@@ -87,9 +86,10 @@ local = "~/dotfiles/.config/zsh/zle"
 use = ["_pet_select"]
 
 [plugins.pet.hooks]
-post = """
+pre = """
   brew require pet knqyf263/pet/pet || return 1
-  zle -N _pet_select
+"""
+post = """
   bindkey '^p' _pet_select
 """
 
