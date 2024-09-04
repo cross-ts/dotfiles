@@ -34,6 +34,16 @@ function docker-sh() {
 }
 """
 
+[plugins.editor]
+local = "~/dotfiles/.config/zsh/zle"
+use = ["_editor"]
+apply = ["defer"]
+
+[plugins.editor.hooks]
+post = """
+  bindkey '^o' _editor
+"""
+
 [plugins.fzf]
 remote = "https://github.com/junegunn/fzf/raw/master/shell/key-bindings.zsh"
 apply = ["defer"]

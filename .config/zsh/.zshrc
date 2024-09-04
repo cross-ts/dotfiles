@@ -31,6 +31,8 @@ if ! type brew >/dev/null 2>&1; then
   return 1
 fi
 
+export EDITOR="nvim"
+
 # TODO: この辺なんとかしたい
 source ${ZDOTDIR}/zshrc/logging.zsh
 source ${ZDOTDIR}/zshrc/brew.zsh
