@@ -25,17 +25,20 @@ setopt transient_rprompt
 
 bindkey -e
 
+# TODO: この辺なんとかしたい
+source ${ZDOTDIR}/zshrc/logging.zsh
+
 # Depends on: Homebrew
 if ! type brew >/dev/null 2>&1; then
   log.error "Homebrew is not installed"
   return 1
 fi
 
-export EDITOR="nvim"
-
 # TODO: この辺なんとかしたい
-source ${ZDOTDIR}/zshrc/logging.zsh
 source ${ZDOTDIR}/zshrc/brew.zsh
+
+brew require nvim neovim || return 1
+export EDITOR="nvim"
 
 # Depends on: sheldon
 brew require sheldon || return 1
