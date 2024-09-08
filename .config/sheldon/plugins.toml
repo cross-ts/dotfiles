@@ -34,16 +34,6 @@ function docker-sh() {
 }
 """
 
-[plugins.editor]
-local = "~/dotfiles/.config/zsh/zle"
-use = ["_editor"]
-apply = ["defer"]
-
-[plugins.editor.hooks]
-post = """
-  bindkey '^o' _editor
-"""
-
 [plugins.fzf]
 remote = "https://github.com/junegunn/fzf/raw/master/shell/key-bindings.zsh"
 apply = ["defer"]
@@ -52,37 +42,6 @@ apply = ["defer"]
 post = """
   brew require rg ripgrep || return 1
   export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
-"""
-
-[plugins.ghq]
-local = "~/dotfiles/.config/zsh/zle"
-use = ["_fzf_ghq_lookup"]
-apply = ["defer"]
-
-[plugins.ghq.hooks]
-pre = """
-  brew require ghq || return 1
-  mkdir -p "${HOME}/repos"
-"""
-post = """
-  bindkey '^G' _fzf_ghq_lookup
-"""
-
-[plugins.gh-copilot-suggest]
-local = "~/dotfiles/.config/zsh/zle"
-use = ["_gh_copilot_suggest"]
-apply = ["defer"]
-
-[plugins.gh-copilot-suggest.hooks]
-pre = """
-  if [[ ! -d "${XDG_DATA_HOME}/gh/extensions/gh-copilot" ]]; then
-    log.info "Installing gh copilot extension"
-    gh extension install github/gh-copilot &> /dev/null
-    log.info "gh copilot extension installed"
-  fi
-"""
-post = """
-  bindkey '^s' _gh_copilot_suggest
 """
 
 [plugins.git-prompt]
@@ -114,19 +73,6 @@ post = """
   brew require eza || return 1
 """
 
-[plugins.pet]
-local = "~/dotfiles/.config/zsh/zle"
-use = ["_pet_select"]
-apply = ["defer"]
-
-[plugins.pet.hooks]
-pre = """
-  brew require pet knqyf263/pet/pet || return 1
-"""
-post = """
-  bindkey '^p' _pet_select
-"""
-
 [plugins."zsh-users/zsh-autosuggestions"]
 github = "zsh-users/zsh-autosuggestions"
 apply = ["defer"]
@@ -145,4 +91,31 @@ post = """
   ZSH_HIGHLIGHT_STYLES[path]='none'
   ZSH_HIGHLIGHT_STYLES[alias]='fg=cyan,bold'
   ZSH_HIGHLIGHT_STYLES[arg0]='fg=cyan,bold'
+"""
+
+[plugins.zle]
+local = "~/.config/zsh/zle"
+use = ["_editor", "_fzf_ghq_lookup", "_gh_copilot_suggest", "_pet_select"]
+apply = ["defer"]
+
+[plugins.zle.hooks]
+pre = """
+  brew require fzf || return 1
+  brew require gh || return 1
+  brew require ghq || return 1
+  brew require pet knqyf263/pet/pet || return 1
+
+  if [[ ! -d "${XDG_DATA_HOME}/gh/extensions/gh-copilot" ]]; then
+    log.info "Installing gh copilot extension"
+    gh extension install github/gh-copilot &> /dev/null
+    log.info "gh copilot extension installed"
+  fi
+
+  mkdir -p "${HOME}/repos"
+"""
+post = """
+  bindkey '^o' _editor
+  bindkey '^G' _fzf_ghq_lookup
+  bindkey '^s' _gh_copilot_suggest
+  bindkey '^p' _pet_select
 """
