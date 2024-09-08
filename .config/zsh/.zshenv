@@ -14,3 +14,4 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 # Z Shell
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZCACHEDIR="${XDG_CACHE_HOME}/zsh"
+export ZSTATEDIR="${XDG_STATE_HOME}/zsh"

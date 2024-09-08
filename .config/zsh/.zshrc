@@ -9,6 +9,7 @@ mkdir -p "${ZCACHEDIR}"
 function cache.clear() {
   rm -rf "${ZCACHEDIR}"
 }
+mkdir -p "${ZDOTDIR}" "${ZCACHEDIR}" "${ZSTATEDIR}"
 
 # Z shell
 mkdir -p "${XDG_STATE_HOME}/zsh"
