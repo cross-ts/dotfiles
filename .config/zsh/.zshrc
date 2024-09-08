@@ -6,7 +6,7 @@ autoload -Uz compinit && compinit -C
 
 mkdir -p "${ZDOTDIR}" "${ZCACHEDIR}" "${ZSTATEDIR}"
 
-FPATH="${ZDOTDIR}/functions/fpath:${FPATH}"
+FPATH="${ZDOTDIR}/functions:${FPATH}"
 autoload -U cache.clear
 autoload -Uz log.error log.warn log.info log.debug
 
