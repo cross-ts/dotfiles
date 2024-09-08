@@ -4,13 +4,10 @@ if [[ ${DOTFILES_DEBUG} == "on" ]]; then
 fi
 autoload -Uz compinit && compinit -C
 
-# Cache directory for zsh
-mkdir -p "${ZCACHEDIR}"
-function cache.clear() {
-  rm -rf "${ZCACHEDIR}"
-}
 mkdir -p "${ZDOTDIR}" "${ZCACHEDIR}" "${ZSTATEDIR}"
 
+FPATH="${ZDOTDIR}/functions/fpath:${FPATH}"
+autoload -U cache.clear
 # Z shell
 mkdir -p "${XDG_STATE_HOME}/zsh"
 export HISTFILE="${XDG_STATE_HOME}/zsh/history"
