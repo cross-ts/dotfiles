@@ -5,7 +5,7 @@ function brew-require() {
   local formula=${2:-$command}
 
   # Check if command is already installed
-  if type ${HOMEBREW_REPOSITORY}/bin/${command} >/dev/null 2>&1; then
+  if [[ -f "${HOMEBREW_REPOSITORY}/bin/${command}" ]]; then
     log.debug "${command} is installed"
     return 0
   fi
