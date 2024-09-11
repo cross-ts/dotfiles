@@ -5,8 +5,7 @@ fi
 mkdir -p "${ZDOTDIR}" "${ZCACHEDIR}" "${ZSTATEDIR}"
 
 # autoload
-autoload -Uz compinit && compinit -C
-autoload -Uz ${ZDOTDIR}/functions/*
+autoload -Uz compinit ${ZDOTDIR}/functions/*
 
 # Z shell
 setopt share_history
