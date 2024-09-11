@@ -33,15 +33,15 @@ export EDITOR="nvim"
 # Depends on: sheldon
 brew require sheldon || return 1
 SHELDON_CACHE="${ZCACHEDIR}/sheldon.cache"
-if [[ ! -f "${SHELDON_CACHE}" ]]; then
-  log.info "Caching sheldon source"
+if [[ ! -f "${SHELDON_CACHE}" || "${XDG_CONFIG_HOME}/sheldon/plugins.toml" -nt "${SHELDON_CACHE}" ]]; then
   sheldon source > "${SHELDON_CACHE}"
-  log.info "Cache created"
-elif [[ "${XDG_CONFIG_HOME}/sheldon/plugins.toml" -nt "${SHELDON_CACHE}" ]]; then
-  log.info "Caching sheldon source"
-  sheldon source > "${SHELDON_CACHE}"
-  log.info "Cache updated"
+  log.info "Cache created ${SHELDON_CACHE}"
 fi
+if [[ ! -f "${SHELDON_CACHE}.zwc" || "${SHELDON_CACHE}" -nt "${SHELDON_CACHE}.zwc" ]]; then
+  zcompile "${SHELDON_CACHE}"
+  log.info "Recompiled ${SHELDON_CACHE}"
+fi
+
 source "${SHELDON_CACHE}"
 unset SHELDON_CACHE
 
@@ -51,11 +51,12 @@ stty -ixon
 # Distinct PATH
 typeset -U PATH
 
-if [[ ${ZDOTDIR}/.zshrc -nt ${ZDOTDIR}/.zshrc.zwc ]]; then
-  log.info "Recompiling zshrc"
-  zcompile ${ZDOTDIR}/.zshrc
-  log.info "Recompiled"
+ZSHRC="${(%):-%x}"
+if [[ ${ZSHRC} -nt ${ZSHRC}.zwc ]]; then
+  zcompile ${ZSHRC}
+  log.info "Recompiled ${ZSHRC}"
 fi
+unset ZSHRC
 
 if [[ ${DOTFILES_DEBUG} == "on" ]]; then
   zprof
