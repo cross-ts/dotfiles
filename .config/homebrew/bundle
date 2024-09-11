@@ -1,3 +1,6 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
 # shell
 brew 'zsh'
 
@@ -29,33 +32,38 @@ brew 'terraform'
 
 # CLI tools
 brew 'bat'
-brew 'coreutils' if OS.mac?
 brew 'jq'
 brew 'knqyf263/pet/pet'
 brew 'tmux'
 brew 'universal-ctags'
+if OS.mac?
+  brew 'coreutils'
+  brew 'mas'
+end
 
 # For Build PHP (asdf)
-brew 'autoconf' if OS.mac?
-brew 'automake' if OS.mac?
-brew 'bison' if OS.mac?
-brew 'freetype' if OS.mac?
-brew 'gd' if OS.mac?
-brew 'gettext' if OS.mac?
-brew 'icu4c' if OS.mac?
-brew 'krb5' if OS.mac?
-brew 'libedit' if OS.mac?
-brew 'libiconv' if OS.mac?
-brew 'libjpeg' if OS.mac?
-brew 'libpng' if OS.mac?
-brew 'libxml2' if OS.mac?
-brew 'libzip' if OS.mac?
-brew 'pkg-config' if OS.mac?
-brew 're2c' if OS.mac?
-brew 'zlib' if OS.mac?
-brew 'gmp' if OS.mac?
-brew 'libsodium' if OS.mac?
-brew 'imagemagick' if OS.mac?
+if OS.mac?
+  brew 'autoconf'
+  brew 'automake'
+  brew 'bison'
+  brew 'freetype'
+  brew 'gd'
+  brew 'gettext'
+  brew 'icu4c'
+  brew 'krb5'
+  brew 'libedit'
+  brew 'libiconv'
+  brew 'libjpeg'
+  brew 'libpng'
+  brew 'libxml2'
+  brew 'libzip'
+  brew 'pkg-config'
+  brew 're2c'
+  brew 'zlib'
+  brew 'gmp'
+  brew 'libsodium'
+  brew 'imagemagick'
+end
 
 # Font
 tap 'homebrew/cask-fonts'
@@ -70,4 +78,4 @@ cask 'google-chrome'
 cask 'slack'
 
 # Mas
-mas 'xcode', id: 497799835 if OS.mac?
+mas 'xcode', id: 497_799_835 if OS.mac?
