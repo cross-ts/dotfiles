@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# Disable global .zshrc
+unsetopt GLOBAL_RCS
+
 # My dotfiles
 export DOTFILES="${HOME}/dotfiles"
 export DOTFILES_DEBUG=off
@@ -15,3 +18,8 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export ZCACHEDIR="${XDG_CACHE_HOME}/zsh"
 export ZSTATEDIR="${XDG_STATE_HOME}/zsh"
+
+# History
+export HISTFILE="${ZSTATEDIR}/history"
+export HISTSIZE=10000
+export SAVEHIST=10000000
