@@ -23,3 +23,6 @@ export ZSTATEDIR="${XDG_STATE_HOME}/zsh"
 export HISTFILE="${ZSTATEDIR}/history"
 export HISTSIZE=10000
 export SAVEHIST=10000000
+
+# Homebrew
+export HOMEBREW_BUNDLE_FILE="${XDG_CONFIG_HOME}/homebrew/bundle"
