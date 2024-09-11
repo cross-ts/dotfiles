@@ -3,6 +3,10 @@ tag = ["ssh"]
 command = "eval $(ssh-agent -s) && ssh-add ~/.ssh/id_rsa"
 
 [[snippets]]
+tag = ["benchmark", "zsh"]
+command = "hyperfine --warmup 10 --shell=none 'zsh -i -c exit' 'zsh -i --no-global-rcs -c exit' 'zsh -i --no-rcs -c exit'"
+
+[[snippets]]
 tag = ["sheldon"]
 command = "sheldon lock --update"
 
