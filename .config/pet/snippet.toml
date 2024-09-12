@@ -14,6 +14,17 @@ command = 'gh copilot suggest "<prompt>" -t "<target=shell>"'
 tag = ["ai", "copilot", "explain"]
 command = 'gh copilot explain "<prompt>"'
 
+########
+# tmux #
+########
+[[snippets]]
+tag = ["tmux", "attach", "session"]
+command = "tmux attach-session -t $(tmux list-sessions -F '#{session_name}' | fzf)"
+
+[[snippets]]
+tag = ["tmux", "new", "session"]
+command = "tmux new-session -s <session-name>"
+
 #############
 # Benchmark #
 #############
