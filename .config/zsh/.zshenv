@@ -1,5 +1,11 @@
 #!/usr/bin/env zsh
 
+# Disable global .zshrc
+unsetopt GLOBAL_RCS
+
+# Set PATH
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
 # My dotfiles
 export DOTFILES="${HOME}/dotfiles"
 export DOTFILES_DEBUG=off
