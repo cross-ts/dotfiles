@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-# Disable global .zshrc
-unsetopt GLOBAL_RCS
-
 # My dotfiles
 export DOTFILES="${HOME}/dotfiles"
 export DOTFILES_DEBUG=off
