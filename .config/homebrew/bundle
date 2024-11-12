@@ -32,6 +32,7 @@ brew 'terraform'
 
 # CLI tools
 brew 'bat'
+brew 'duckdb'
 brew 'jq'
 brew 'knqyf263/pet/pet'
 brew 'hyperfine'

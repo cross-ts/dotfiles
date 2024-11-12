@@ -1955,6 +1955,45 @@
             }
           }
         }
+      },
+      "duckdb": {
+        "version": "1.1.3",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "arm64_sequoia": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:c0ee4c114f855cda3cedf3aa3ebc55e98d2478abd8f82afdb6c2f77b35f69a99",
+              "sha256": "c0ee4c114f855cda3cedf3aa3ebc55e98d2478abd8f82afdb6c2f77b35f69a99"
+            },
+            "arm64_sonoma": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:e64f1b902ef3ff598494153defca23bba62975d122bf16264421278553d775dc",
+              "sha256": "e64f1b902ef3ff598494153defca23bba62975d122bf16264421278553d775dc"
+            },
+            "arm64_ventura": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:06aff3e01d6a7727dc4c202df223e37d71daf63a8ba6f21d21b1a48655d1a3df",
+              "sha256": "06aff3e01d6a7727dc4c202df223e37d71daf63a8ba6f21d21b1a48655d1a3df"
+            },
+            "sonoma": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:56920ddb8940e09ac52352b2b05dc9daa0f39dfd03fd146894754b6e425b034a",
+              "sha256": "56920ddb8940e09ac52352b2b05dc9daa0f39dfd03fd146894754b6e425b034a"
+            },
+            "ventura": {
+              "cellar": ":any",
+              "url": "https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:3f0270c622867c1944df25c1b7e1085bacc4ac751b6b540ed58ac6e21d933f8b",
+              "sha256": "3f0270c622867c1944df25c1b7e1085bacc4ac751b6b540ed58ac6e21d933f8b"
+            },
+            "x86_64_linux": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/duckdb/blobs/sha256:25d8fcc9c429a718e5e97d8312efd04672a9b91d5aa7b9cc1af42e2178851dc8",
+              "sha256": "25d8fcc9c429a718e5e97d8312efd04672a9b91d5aa7b9cc1af42e2178851dc8"
+            }
+          }
+        }
       }
     },
     "tap": {
