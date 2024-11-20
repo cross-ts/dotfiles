@@ -40,6 +40,7 @@ brew 'tmux'
 brew 'universal-ctags'
 if OS.mac?
   brew 'coreutils'
+  brew 'wget'
   brew 'mas'
 end
 

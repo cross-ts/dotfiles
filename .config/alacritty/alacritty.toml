@@ -1,6 +1,5 @@
-import = ["/Users/cross_ts/.config/alacritty/themes/788bc5.toml"]
 
-[shell]
+[terminal.shell]
 program = "/opt/homebrew/bin/zsh"
 args = ["--no-global-rcs"]
 
@@ -27,3 +26,8 @@ history = 10000
 
 [window]
 startup_mode = "Maximized"
+
+[general]
+import = ["/Users/cross_ts/.config/alacritty/themes/788bc5.toml"]
+
+[terminal]
