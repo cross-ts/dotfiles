@@ -7,11 +7,16 @@ return {
       ensure_installed = {
         'bash',
         'go',
+        'json',
         'lua',
         'php',
         'python',
         'ruby',
+        'svelte',
         'terraform',
+        'typescript',
+        'toml',
+        'yaml',
       },
     })
   end

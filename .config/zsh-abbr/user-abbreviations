@@ -14,6 +14,7 @@ abbr "git swf"="git branch | grep -v \* | fzf --ansi --height 20% | xargs git sw
 abbr "gp"="git push"
 abbr "hadolint"="docker run --rm -i hadolint/hadolint <"
 abbr "ll"="eza -lah"
+abbr "make"="gmake"
 abbr "pull"="git pull"
 abbr "push"="git push"
 abbr "t"="tmux"
