@@ -1,23 +1,15 @@
 -- Nvim Treesitter configurations and abstraction layer
 return {
   'nvim-treesitter/nvim-treesitter',
-  cmd = { 'TSUpdate' },
-  config = function()
-    require('nvim-treesitter.configs').setup({
-      ensure_installed = {
-        'bash',
-        'go',
-        'json',
-        'lua',
-        'php',
-        'python',
-        'ruby',
-        'svelte',
-        'terraform',
-        'typescript',
-        'toml',
-        'yaml',
-      },
+  build = ":TSUpdate",
+  config = function ()
+    local configs = require("nvim-treesitter.configs")
+    configs.setup({
+      ensure_installed = {},
+      sync_install = false,
+      auto_install = true,
+      highlight = { enable = true },
+      indent = { enable = true },  
     })
   end
 }

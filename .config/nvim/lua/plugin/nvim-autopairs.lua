@@ -1,9 +1,7 @@
--- autopairs for neovim written by lua
+-- autopairs for neovim written in lua
 return {
   'windwp/nvim-autopairs',
-  dependencies = {
-    'nvim-treesitter/nvim-treesitter'
-  },
   event = "InsertEnter",
+  config = true,
   opts = {},
 }
