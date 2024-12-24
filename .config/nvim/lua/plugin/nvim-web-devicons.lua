@@ -1,10 +1,8 @@
--- lua `fork` of vim-web-devicons for neovim
+-- Provides Nerd Font icons (glyphs) for use by neovim plugins
 return {
   'nvim-tree/nvim-web-devicons',
-  config = function()
-    require('nvim-web-devicons').setup({
-      default = true,
-      strict = true,
-    })
-  end,
+  opts = {
+    default = true,
+    strict = true,
+  },
 }

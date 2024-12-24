@@ -1,40 +1,32 @@
 -- Find, Filter, Preview, Pick. All lua, all the time.
 return {
   'nvim-telescope/telescope.nvim',
-  tag = '0.1.3',
-  cmd = { 'Telescope' },
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-fzf-native.nvim',
+    'nvim-telescope/telescope-frecency.nvim',
   },
-  keys = {
-    { '<leader>ff', function() require('telescope.builtin').find_files() end, { silent = true } },
-    {
-      '<leader>fg',
-      function()
-        require('telescope.builtin').grep_string({
-          shorten_path = true,
-          word_match = "-w",
-          only_sort_text = true,
-          search = '',
-          additional_args = {
-            '--hidden',
-            '--glob', '!.git/*',
-          },
-        })
-      end,
-      { silent = true }
-    },
-    { '<leader>fb', function() require('telescope.builtin').buffers() end, { silent = true } },
-    { '<leader>fh', function() require('telescope.builtin').help_tags() end, { silent = true } },
-    { '<leader>fr', function() require('telescope.builtin').oldfiles() end, { silent = true } },
-  },
+  cmd = { 'Telescope' },
   config = function()
-    require('telescope').setup({
+    local telescope = require('telescope')
+    telescope.setup {
+      defaults = {
+        vimgrep_arguments = {
+          'rg',
+          '--color=never',
+          '--no-heading',
+          '--with-filename',
+          '--line-number',
+          '--column',
+          '--smart-case',
+          '--hidden',
+          '--glob', '!**/.git/*',
+        },
+      },
       pickers = {
         find_files = {
-          find_command = { 'rg', '--files', '--hidden', '--follow', '--glob', '!.git/*' },
-        }
+          find_command = { 'rg', '--files', '--hidden', '--glob', '!**/.git/*' },
+        },
       },
       extensions = {
         fzf = {
@@ -42,9 +34,40 @@ return {
           override_generic_sorter = true,
           override_file_sorter = true,
           case_mode = 'smart_case',
-        }
+        },
       }
-    })
-    require('telescope').load_extension('fzf')
-  end
+    }
+    telescope.load_extension('frecency')
+    telescope.load_extension('fzf')
+  end,
+  keys = function()
+    return {
+      { '<leader>ff', '<cmd>Telescope find_files<cr>', { silent = true } },
+      {
+        '<leader>fg',
+        function()
+          require('telescope.builtin').grep_string {
+            shorten_path = true,
+            path_display = { 'hidden' },
+            word_match = '-w',
+            only_sort_text = true,
+            search = '',
+          }
+        end,
+        { silent = true },
+      },
+      {
+        '<leader>gg',
+        function()
+          require('telescope.builtin').current_buffer_fuzzy_find {
+            skip_empty_lines = true,
+            results_ts_highlight = true,
+          }
+        end,
+        { silent = true },
+      },
+      { '<leader>fb', '<cmd>Telescope buffers<cr>', { silent = true } },
+      { '<leader>fr', '<cmd>Telescope frecency workspace=CWD path_display={"shorten"}<cr>', { silent = true } },
+    }
+  end,
 }
