@@ -7,7 +7,7 @@ return {
     'MasonInstall',
     'MasonUninstall',
     'MasonUninstallAll',
-    'MasonLog'
+    'MasonLog',
   },
   config = true,
 }
