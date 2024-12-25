@@ -2,6 +2,7 @@
 return {
   'nvim-treesitter/nvim-treesitter',
   dependencies = {
+    'nvim-treesitter/nvim-treesitter-context',
     'RRethy/nvim-treesitter-endwise',
   },
   build = ":TSUpdate",
@@ -17,5 +18,9 @@ return {
       -- Plugins
       endwise = { enable = true },
     })
-  end
+  end,
+  event = {
+    'BufRead',
+    'BufEnter',
+  },
 }
