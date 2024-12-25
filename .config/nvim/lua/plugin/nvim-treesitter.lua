@@ -6,6 +6,10 @@ return {
     'RRethy/nvim-treesitter-endwise',
   },
   build = ":TSUpdate",
+  event = {
+    'BufNewFile',
+    'BufReadPre',
+  },
   config = function ()
     local configs = require("nvim-treesitter.configs")
     configs.setup({
@@ -19,8 +23,4 @@ return {
       endwise = { enable = true },
     })
   end,
-  event = {
-    'BufRead',
-    'BufEnter',
-  },
 }
