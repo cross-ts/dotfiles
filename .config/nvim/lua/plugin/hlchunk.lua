@@ -8,27 +8,28 @@ return {
     "BufNewFile",
     "BufReadPre",
   },
-  config = function()
-    local hlchunk = require("hlchunk")
-    local cursor_color = ("#%06x"):format(vim.api.nvim_get_hl(0, { name = "CursorLineNr" }).fg)
-    hlchunk.setup {
-      chunk = {
-        enable = true,
-        use_treesitter = true,
-        duration = 100,
-        delay = 100,
+  opts = {
+    chunk = {
+      enable = true,
+      use_treesitter = true,
+      style = {
+        ("#%06x"):format(vim.api.nvim_get_hl(0, { name = "Debug" }).fg),
+        ("#%06x"):format(vim.api.nvim_get_hl(0, { name = "Error" }).fg),
       },
-      indent = {
-        enable = true,
-      },
-      line_num = {
-        enable = true,
-        style = cursor_color,
-        use_treesitter = true,
-      },
-      blank = {
-        enable = true,
-      },
-    }
-  end,
+      duration = 100,
+      delay = 100,
+    },
+    indent = {
+      enable = true,
+    },
+    line_num = {
+      enable = true,
+      style = ("#%06x"):format(vim.api.nvim_get_hl(0, { name = "CursorLineNr" }).fg),
+      use_treesitter = true,
+    },
+    blank = {
+      enable = true,
+      chars = { "⋅" },
+    },
+  },
 }
