@@ -20,9 +20,11 @@ return {
     local lspkind = require('lspkind')
 
     local has_words_before = function()
-      unpack = unpack or table.unpack
+      if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+        return false
+      end
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-      return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+      return col ~= 0 and vim.api.nvim_buf_get_text(0, line-1, 0, line-1, col, {})[1]:match("^%s*$") == nil
     end
 
     cmp.setup({
@@ -30,17 +32,10 @@ return {
       },
       mapping = {
         ['<Tab>'] = cmp.mapping(function(fallback)
-          if cmp.visible() then
-            if #cmp.get_entries() == 1 then
-              cmp.confirm({ select = true })
-            else
-              cmp.select_next_item()
-            end
-          elseif has_words_before() then
-            cmp.complete()
-            if #cmp.get_entries() == 1 then
-              cmp.confirm({ select = true })
-            end
+          if cmp.visible() and has_words_before() then
+            cmp.select_next_item({
+              behavior = cmp.SelectBehavior.Select,
+            })
           else
             fallback()
           end
@@ -73,7 +68,9 @@ return {
           maxwidth = 50,
           ellipsis_char = '...',
           show_labelDetails = true,
-          symbol_map = { Copilot = "" },
+          symbol_map = {
+            Copilot = "",
+          },
           before = function(entry, vim_item)
             return vim_item
           end,

@@ -21,6 +21,8 @@ return {
     },
     indent = {
       enable = true,
+      chars = { "┊" },
+      use_treesitter = true,
     },
     line_num = {
       enable = true,
