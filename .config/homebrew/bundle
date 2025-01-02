@@ -78,6 +78,7 @@ cask 'alacritty'
 cask 'discord'
 cask 'docker'
 cask 'google-chrome'
+cask 'ghostty'
 cask 'slack'
 
 # Mas
