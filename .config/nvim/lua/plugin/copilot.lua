@@ -1,10 +1,18 @@
--- Neovim plugin for GitHub Copilot
+-- Fully featured & enhanced replacement for copilot.vim complete with API for interacting with Github Copilot
 return {
-  'github/copilot.vim',
-  event = 'InsertEnter',
-  config = function()
-    vim.g.copilot_filetypes = {
-      yaml = true,
-    }
-  end,
+  'zbirenbaum/copilot.lua',
+  cmd = {
+    'Copilot',
+  },
+  event = {
+    'InsertEnter',
+  },
+  opts = {
+    suggestion = {
+      enabled = false,
+    },
+    panel = {
+      enabled = false,
+    },
+  },
 }
