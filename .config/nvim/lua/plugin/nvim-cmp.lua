@@ -1,31 +1,41 @@
 -- A completion plugin for neovim coded in Lua.
 return {
   'hrsh7th/nvim-cmp',
-  event = { 'BufReadPre', 'BufNewFile' },
   dependencies = {
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
     'hrsh7th/cmp-nvim-lsp',
-    'neovim/nvim-lspconfig',
+    'hrsh7th/cmp-path',
     'williamboman/mason-lspconfig.nvim',
   },
+  event = {
+    'InsertEnter',
+    'CmdLineEnter',
+  },
   config = function()
-    -- Setup nvim-cmp
-    require('cmp').setup({
-      sources = {
+    local cmp = require('cmp')
+    cmp.setup({
+      sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-      },
+      }, {
+        { name = 'buffer' },
+      })
     })
 
-    -- Setup LSP
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
-
-    local lspconfig = require('lspconfig')
-    require('mason-lspconfig').setup_handlers({
-      function(server_name)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
+    cmp.setup.cmdline('/', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'buffer' },
+      })
+    })
+    cmp.setup.cmdline(':', {
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = cmp.config.sources({
+        { name = 'path' }
+      }, {
+        { name = 'cmdline' }
+      }),
+      matching = { disallow_symbol_nonprefix_matching = false }
     })
   end,
 }

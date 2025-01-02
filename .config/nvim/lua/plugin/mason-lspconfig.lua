@@ -4,6 +4,7 @@ return {
   dependencies = {
     'neovim/nvim-lspconfig',
     'williamboman/mason.nvim',
+    'hrsh7th/cmp-nvim-lsp',
   },
   cmd = {
     'LspInstall',
@@ -19,7 +20,11 @@ return {
 
     require('mason-lspconfig').setup_handlers({
       function (server_name)
-        require('lspconfig')[server_name].setup({})
+        local cmp_nvim_lsp = require('cmp_nvim_lsp')
+        local default_capabilities = cmp_nvim_lsp.default_capabilities()
+        require('lspconfig')[server_name].setup({
+          capabilities = default_capabilities,
+        })
       end,
     })
   end
