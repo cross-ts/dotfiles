@@ -71,7 +71,7 @@ return {
           symbol_map = {
             Copilot = "",
           },
-          before = function(entry, vim_item)
+          before = function(_, vim_item)
             return vim_item
           end,
         }),
