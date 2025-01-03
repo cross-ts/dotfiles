@@ -3,8 +3,9 @@ return {
   'nvim-telescope/telescope.nvim',
   dependencies = {
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope-fzf-native.nvim',
+    'nvim-telescope/telescope-file-browser.nvim',
     'nvim-telescope/telescope-frecency.nvim',
+    'nvim-telescope/telescope-fzf-native.nvim',
   },
   cmd = { 'Telescope' },
   config = function()
@@ -29,6 +30,16 @@ return {
         },
       },
       extensions = {
+        file_browser = {
+          hijack_netrw = true,
+          auto_depth = true,
+          hidden = {
+            file_browser = true,
+            folder_browser = true,
+          },
+          git_status = false,
+          hide_parent_dir = true,
+        },
         fzf = {
           fuzzy = true,
           override_generic_sorter = true,
@@ -37,6 +48,7 @@ return {
         },
       }
     }
+    telescope.load_extension('file_browser')
     telescope.load_extension('frecency')
     telescope.load_extension('fzf')
   end,
@@ -66,7 +78,13 @@ return {
         end,
         { silent = true },
       },
-      { '<leader>fb', '<cmd>Telescope buffers<cr>', { silent = true } },
+      {
+        '<leader>fb',
+        function()
+          require('telescope').extensions.file_browser.file_browser()
+        end,
+        { silent = true },
+      },
       { '<leader>fr', '<cmd>Telescope frecency workspace=CWD path_display={"shorten"}<cr>', { silent = true } },
     }
   end,
