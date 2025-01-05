@@ -1,9 +1,14 @@
 -- 💥 Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 return {
   'folke/noice.nvim',
+  enabled = false,
   dependencies = {
     'MunifTanjim/nui.nvim',
     'nvim-treesitter/nvim-treesitter',
+  },
+  cmd = {
+    'Noice',
+    'NoiceAll',
   },
   event = {
     'VeryLazy',
