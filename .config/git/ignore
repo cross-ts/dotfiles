@@ -11,3 +11,9 @@ tags
 
 ## IntelliJ IDEA
 .idea/
+
+## VS Code
+.vscode/
+
+
+.cross_ts/
