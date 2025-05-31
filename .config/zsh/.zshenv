@@ -7,7 +7,6 @@ unsetopt GLOBAL_RCS
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # My dotfiles
-export DOTFILES="${HOME}/dotfiles"
 export DOTFILES_DEBUG=off
 
 # XDG Base Directory Specification
