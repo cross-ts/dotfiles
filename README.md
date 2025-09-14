@@ -1,3 +1,6 @@
+> [!WARNING]
+> [.config](https://github.com/cross-ts/.config)に移行した
+
 ```
      _       _    __ _ _
     | |     | |  / _(_) |
